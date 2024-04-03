@@ -66,8 +66,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         <span class="nav_name">Calendario</span>
                     </a>
                     <a href="#" class="nav_link">
-                        <i class="bx bx-message-square-detail nav_icon"></i>
-                        <span class="nav_name">Messages</span>
+                        <font-awesome-icon icon="box" />
+                        <span class="nav_name">tareas Archivadas</span>
                     </a>
                     <a href="#" class="nav_link">
                         <i class="bx bx-bookmark nav_icon"></i>

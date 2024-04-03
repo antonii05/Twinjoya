@@ -17,9 +17,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
+        'username',
+        'rol',
         'password',
+        'grupo',
     ];
 
     /**
@@ -39,9 +43,15 @@ class User extends Authenticatable
      */
     protected function casts(): array
     {
-        return [
-            'email_verified_at' => 'datetime',
+        return [            
             'password' => 'hashed',
         ];
+    }
+
+    /* 
+    * Relacion para las tareas
+    */
+    public function tareas(){
+        return $this->belongsToMany(Task::class);
     }
 }
