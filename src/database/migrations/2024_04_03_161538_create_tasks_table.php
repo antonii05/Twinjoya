@@ -21,6 +21,7 @@ return new class extends Migration
             $table->boolean('archivado')->nullable();
             $table->integer('id_categoria');
             $table->integer('id_grupo');
+            $table->integer('id_usuario');
             $table->timestamps();
         });
     }

@@ -16,9 +16,10 @@ return new class extends Migration
             $table->id(); 
             $table->string('name',100);
             $table->string('email')->unique();
+            $table->string('telefono')->nullable();
             $table->string('username',100);
             $table->string('password');
-            $table->integer('grupo');
+            $table->integer('grupo')->nullable();
             $table->string('rol')->nullable();
             $table->rememberToken();
             $table->timestamps();

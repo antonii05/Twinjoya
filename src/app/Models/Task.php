@@ -22,8 +22,8 @@ class Task extends Model
         'fecha_limite',
         'archivado',
         'id_categoria',
-        'usuario_id',
         'id_grupo',
+        'id_usuario',
     ];
 
 
