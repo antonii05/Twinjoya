@@ -1,5 +1,7 @@
 <!-- TODO Faltaria las vista reactiva para movil -->
 <script setup lang="ts">
+import { RouterLink } from "vue-router";
+
 document.addEventListener("DOMContentLoaded", function (event) {
     const showNavbar = (toggleId, navId, bodyId, headerId) => {
         const toggle = document.getElementById(toggleId),
@@ -61,10 +63,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         <font-awesome-icon icon="border-all" />
                         <span class="nav_name">Dashboard</span>
                     </a> -->
-                    <a href="#" class="nav_link">
-                        <font-awesome-icon icon="calendar" />
-                        <span class="nav_name">Calendario</span>
-                    </a>
+                    <router-link to="/home">
+                        <a class="nav_link">
+                            <font-awesome-icon icon="calendar" />
+                            <span class="nav_name">Calendario</span>
+                        </a>
+                    </router-link>
                     <a href="#" class="nav_link">
                         <font-awesome-icon icon="box" />
                         <span class="nav_name">tareas Archivadas</span>
@@ -84,10 +88,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 </div>
             </div>
             <a href="#" class="nav_link">
-                <font-awesome-icon
-                    icon="right-from-bracket"
-                    class="fa-rotate-180"
-                />
+                <font-awesome-icon icon="right-from-bracket" class="fa-rotate-180" />
                 <span class="nav_name">Cerrar Sessión</span>
             </a>
         </nav>
@@ -96,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
 :root {
     --header-height: 3rem;
     --nav-width: 68px;
@@ -104,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     --white-color: #f7f6fb;
     --z-fixed: 100;
 }
+
 *,
 ::before,
 ::after {
@@ -113,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 a {
     text-decoration: none;
 }
+
 .header {
     width: 100%;
     height: var(--header-height);
@@ -123,20 +127,20 @@ a {
     align-items: center;
     justify-content: space-between;
     background: rgb(10, 0, 189);
-    background: linear-gradient(
-        90deg,
-        rgba(10, 0, 189, 1) 0%,
-        rgba(0, 212, 255, 1) 100%
-    );
+    background: linear-gradient(90deg,
+            rgba(10, 0, 189, 1) 0%,
+            rgba(0, 212, 255, 1) 100%);
     padding: 0 1rem;
     z-index: var(--z-fixed);
     transition: 0.5s;
 }
+
 .header_toggle {
     color: var(--first-color);
     font-size: 1.5rem;
     cursor: pointer;
 }
+
 .header_img {
     width: 35px;
     height: 35px;
@@ -145,6 +149,7 @@ a {
     border-radius: 50%;
     overflow: hidden;
 }
+
 #gear {
     color: grey;
     margin-top: 6px;
@@ -153,6 +158,7 @@ a {
 .header_img img {
     width: 40px;
 }
+
 .l-navbar {
     position: fixed;
     top: 0;
@@ -160,15 +166,14 @@ a {
     width: var(--nav-width);
     height: 100vh;
     background: rgb(10, 0, 189);
-    background: linear-gradient(
-        180deg,
-        rgba(10, 0, 189, 1) 0%,
-        rgba(0, 212, 255, 1) 100%
-    );
+    background: linear-gradient(180deg,
+            rgba(10, 0, 189, 1) 0%,
+            rgba(0, 212, 255, 1) 100%);
     padding: 0.5rem 1rem 0 0;
     transition: 0.5s;
     z-index: var(--z-fixed);
 }
+
 .nav {
     height: 100%;
     display: flex;
@@ -176,6 +181,7 @@ a {
     justify-content: space-between;
     overflow: hidden;
 }
+
 .nav_logo,
 .nav_link {
     display: grid;
@@ -184,38 +190,48 @@ a {
     column-gap: 1rem;
     padding: 0.5rem 0 0.5rem 1.5rem;
 }
+
 .nav_logo {
     margin-bottom: 2rem;
 }
+
 .nav_logo-icon {
     font-size: 1.25rem;
     color: var(--white-color);
 }
+
 .nav_logo-name {
     color: var(--white-color);
     font-weight: 700;
 }
+
 .nav_link {
     position: relative;
     color: var(--first-color-light);
     margin-bottom: 1.5rem;
     transition: 0.3s;
 }
+
 .nav_link:hover {
     color: var(--white-color);
 }
+
 .nav_icon {
     font-size: 1.25rem;
 }
+
 .show {
     left: 0;
 }
+
 .body-pd {
     padding-left: calc(var(--nav-width) + 1rem);
 }
+
 .active {
     color: var(--white-color);
 }
+
 .active::before {
     content: "";
     position: absolute;
@@ -224,32 +240,40 @@ a {
     height: 32px;
     background-color: var(--white-color);
 }
+
 .height-100 {
     height: 100vh;
 }
+
 @media screen and (min-width: 768px) {
     body {
         margin: calc(var(--header-height) + 1rem) 0 0 0;
         padding-left: calc(var(--nav-width) + 2rem);
     }
+
     .header {
         height: calc(var(--header-height) + 1rem);
         padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
     }
+
     .header_img {
         width: 40px;
         height: 40px;
     }
+
     .header_img i {
         width: 45px;
     }
+
     .l-navbar {
         left: 0;
         padding: 1rem 1rem 0 0;
     }
+
     .show {
         width: calc(var(--nav-width) + 156px);
     }
+
     .body-pd {
         padding-left: calc(var(--nav-width) + 188px);
     }
