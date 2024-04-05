@@ -7,11 +7,6 @@
 
     <title>Laravel</title>
 
-    <!-- BS5 -->
-    <link rel="stylesheet" href="../BS5/main.scss">
-    <link rel="stylesheet" href="BS5/main.css">
-    <link rel="stylesheet" href="../css/style.css">
-
 </head>
 
 <body>
