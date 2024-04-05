@@ -1,13 +1,6 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import { useRouter } from "vue-router";
-import sideBarComponent from '../../components/sideBarComponent.vue';
-
-const ruta = useRouter();
-
-const enviar = () => {
-    ruta.push("/home");
-};
+import { RouterView } from "vue-router";
+import sideBarComponent from "../../../VUE/components/sideBarComponent.vue";
 </script>
 
 <template>

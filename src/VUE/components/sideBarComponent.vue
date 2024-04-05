@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 
 <template>
-    <!-- !Cambiar los iconos a fontAwesome -->
     <!-- TODO No se si meterlo o no ( es necesario creo para q mas tarde sea reactivo) -->
     <!-- <header class="header" id="header">
         <div class="header_toggle">
@@ -54,25 +53,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
-                <a href="#" class="nav_logo">
-                    <font-awesome-icon icon="bars" />
-                    <span class="nav_logo-name">BBBootstrap</span>
-                </a>
                 <div class="nav_list">
-                    <!-- <a href="#" class="nav_link active">
-                        <font-awesome-icon icon="border-all" />
-                        <span class="nav_name">Dashboard</span>
-                    </a> -->
                     <router-link to="/home">
-                        <a class="nav_link">
-                            <font-awesome-icon icon="calendar" />
-                            <span class="nav_name">Calendario</span>
+                        <a href="#" class="nav_logo">
+                            <font-awesome-icon icon="house" />
+                            <span class="nav_name">Home</span>
                         </a>
                     </router-link>
-                    <a href="#" class="nav_link">
-                        <font-awesome-icon icon="box" />
-                        <span class="nav_name">tareas Archivadas</span>
-                    </a>
+
+                    <router-link to="/calendario">
+                        <a href="#" class="nav_logo nav_link">
+                            <font-awesome-icon icon="calendar" />
+                            <span class="nav_name"> </span>
+                        </a>
+                    </router-link>
+
+                    <router-link to="/archivados">
+                        <a href="#" class="nav_link">
+                            <font-awesome-icon icon="box" />
+                            <span class="nav_name">Tareas Archivadas</span>
+                        </a>
+                    </router-link>
+
                     <a href="#" class="nav_link">
                         <i class="bx bx-bookmark nav_icon"></i>
                         <span class="nav_name">Bookmark</span>
@@ -88,7 +90,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 </div>
             </div>
             <a href="#" class="nav_link">
-                <font-awesome-icon icon="right-from-bracket" class="fa-rotate-180" />
+                <font-awesome-icon
+                    icon="right-from-bracket"
+                    class="fa-rotate-180"
+                />
                 <span class="nav_name">Cerrar Sessión</span>
             </a>
         </nav>
@@ -127,9 +132,11 @@ a {
     align-items: center;
     justify-content: space-between;
     background: rgb(10, 0, 189);
-    background: linear-gradient(90deg,
-            rgba(10, 0, 189, 1) 0%,
-            rgba(0, 212, 255, 1) 100%);
+    background: linear-gradient(
+        90deg,
+        rgba(10, 0, 189, 1) 0%,
+        rgba(0, 212, 255, 1) 100%
+    );
     padding: 0 1rem;
     z-index: var(--z-fixed);
     transition: 0.5s;
@@ -166,9 +173,11 @@ a {
     width: var(--nav-width);
     height: 100vh;
     background: rgb(10, 0, 189);
-    background: linear-gradient(180deg,
-            rgba(10, 0, 189, 1) 0%,
-            rgba(0, 212, 255, 1) 100%);
+    background: linear-gradient(
+        180deg,
+        rgba(10, 0, 189, 1) 0%,
+        rgba(0, 212, 255, 1) 100%
+    );
     padding: 0.5rem 1rem 0 0;
     transition: 0.5s;
     z-index: var(--z-fixed);

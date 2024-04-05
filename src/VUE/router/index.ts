@@ -9,8 +9,18 @@ const router = createRouter({
     {
       path: '/home',
       name: 'home',
-      component: () => import('../resources/views/HomeView.vue'),
+      component: () => import('../../resources/views/vue/HomeView.vue'),
     },
+    {
+      path: '/calendario',
+      name: 'calendario',
+      component: () => import('../../resources/views/vue/CalendarioView.vue'),
+    },
+    {
+      path: '/archivados',
+      name: 'tareas-archivadas',
+      component: () => import('../../resources/views/vue/ArchivadosView.vue'),
+    }
     /* 
     {
       path: '/configuracion',

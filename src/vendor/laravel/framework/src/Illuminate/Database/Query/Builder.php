@@ -27,6 +27,7 @@ use Illuminate\Support\Traits\Macroable;
 use InvalidArgumentException;
 use LogicException;
 use RuntimeException;
+use UnitEnum;
 
 class Builder implements BuilderContract
 {
@@ -1315,7 +1316,7 @@ class Builder implements BuilderContract
         $type = 'between';
 
         if ($values instanceof CarbonPeriod) {
-            $values = [$values->start, $values->end];
+            $values = [$values->getStartDate(), $values->getEndDate()];
         }
 
         $this->wheres[] = compact('type', 'column', 'values', 'boolean', 'not');
@@ -2380,7 +2381,7 @@ class Builder implements BuilderContract
         $type = 'between';
 
         if ($values instanceof CarbonPeriod) {
-            $values = [$values->start, $values->end];
+            $values = [$values->getStartDate(), $values->getEndDate()];
         }
 
         $this->havings[] = compact('type', 'column', 'values', 'boolean', 'not');
@@ -3953,7 +3954,11 @@ class Builder implements BuilderContract
      */
     public function castBinding($value)
     {
-        return $value instanceof BackedEnum ? $value->value : $value;
+        if ($value instanceof UnitEnum) {
+            return $value instanceof BackedEnum ? $value->value : $value->name;
+        }
+
+        return $value;
     }
 
     /**
