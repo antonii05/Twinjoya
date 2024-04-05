@@ -89,3 +89,8 @@ To see the dashboard and view any emails coming through the system, visit [local
 
 Para la Creacion de un nuevo Controlador 
 - `php artisan make:controller Api/V1/TaskController --api --model=Task`
+
+## Actualizar la carpeta vendor
+
+Si la carpeta /vendor no se ha cargador utilizar el siguiente comando
+`sudo docker-compose run --rm composer install` y desspues `sudo docker-compose run --rm composer update`
