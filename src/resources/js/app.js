@@ -28,13 +28,12 @@ app.use(router)
 
 app.component("FontAwesomeIcon", FontAwesomeIcon)
 
-//! Cambiar configuracion de Axios
+// Configura la URL base para Axios
+axios.defaults.baseURL = 'http://localhost/api/v1';
 
 //axios
 app.use(VueAxios, axios)
 app.provide('axios', app.config.globalProperties.axios)  // provide 'axios'
 
-// Configuracion de Guillermo de axios
-axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
 
 app.mount("#app")

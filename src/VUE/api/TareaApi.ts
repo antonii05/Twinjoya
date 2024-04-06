@@ -1,12 +1,12 @@
 import axios, { type AxiosResponse } from "axios";
+import { Task } from "../models/Task";
+
 export default {
-    name: "ActividadApi",
-    async listar() {
-        return axios
-            .get("/v1/tareas/recursos")
-            .then((response: AxiosResponse) => {
-                return response.data;
-            });
+    name: "TareaApi",
+    async listar(){
+        return axios.get("/tareas/listar").then((response: AxiosResponse) => {
+            return response.data;
+        });
     },
     /* 
     async get(id:number): Promise<Actividad> {
