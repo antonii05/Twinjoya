@@ -11,9 +11,8 @@ import TareaApi from "../../../VUE/api/TareaApi";
 import { Task } from "../../../VUE/models/Task";
 import { onMounted, ref } from "vue";
 
-const tareas = ref({} as Task);
-
+const tareas = ref({} as Task[]);
 onMounted(async () => {
-    tareas.value = await TareaApi.listar();
+    tareas.value = await TareaApi.getTareas();
 });
 </script>

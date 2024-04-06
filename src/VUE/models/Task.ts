@@ -7,4 +7,5 @@ export interface Task{
     archivado: boolean | null;
     id_categoria: number;
     id_grupo: number;
+    id_usuario : number;
 }

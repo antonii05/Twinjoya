@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//* Generar las rutas correspondientes
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -23,11 +25,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Rutas para el controlador de usuarios
 Route::prefix('v1/usuarios')->group(function () {
     Route::resource('recursos','Api\V1\UsuariosController');
-    Route::get('listar', [UsuariosController::class,'index']);
 });
 
 // Rutas para el controlador de tareas
 Route::prefix('v1/tareas')->group(function () {
     Route::resource('recursos','Api\V1\TaskController');
-    Route::get('listar', [TaskController::class,'index']);
+    Route::get('listarTareas',[TaskController::class,'tareasUser']);
 });

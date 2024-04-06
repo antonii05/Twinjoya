@@ -44,7 +44,7 @@ class User extends Authenticatable
      */
     protected function casts(): array
     {
-        return [            
+        return [
             'password' => 'hashed',
         ];
     }
@@ -52,7 +52,8 @@ class User extends Authenticatable
     /* 
     * Relacion para las tareas
     */
-    public function tareas(){
-        return $this->belongsToMany(Task::class);
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'id_usuario');
     }
 }
