@@ -31,4 +31,5 @@ Route::prefix('v1/usuarios')->group(function () {
 Route::prefix('v1/tareas')->group(function () {
     Route::resource('recursos','Api\V1\TaskController');
     Route::get('listarTareas',[TaskController::class,'tareasUser']);
+    Route::get('tarea/{id}',[TaskController::class,'detalle']);
 });
