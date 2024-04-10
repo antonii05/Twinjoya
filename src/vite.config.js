@@ -10,4 +10,9 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    resolve: {
+        alias: {
+          '@': '../../', // Ruta a tu directorio src
+        },
+      },
 });

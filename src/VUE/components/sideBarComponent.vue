@@ -1,7 +1,7 @@
 <!-- TODO Faltaria las vista reactiva para movil -->
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
-
+/* 
 document.addEventListener("DOMContentLoaded", function (event) {
     const showNavbar = (toggleId, navId, bodyId, headerId) => {
         const toggle = document.getElementById(toggleId),
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     linkColor.forEach((l) => l.addEventListener("click", colorLink));
 
     // Your code to run since DOM is loaded and ready
-});
+}); */
 </script>
 
 <template>

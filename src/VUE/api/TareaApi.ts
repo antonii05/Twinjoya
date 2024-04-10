@@ -1,6 +1,6 @@
 import axios, { type AxiosResponse } from "axios";
-import { Task } from "../models/Task";
-import { User } from "../models/User";
+import type{ Task } from "@/VUE/models/Task";
+import type { User } from "@/VUE/models/User";
 
 export default {
     name: "TareaApi",

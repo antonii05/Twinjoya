@@ -39,7 +39,6 @@ services:
       - laravel
     volumes:
       - ./mysql:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   php:
     build:
