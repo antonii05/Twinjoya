@@ -24,8 +24,8 @@ class TaskFactory extends Factory
             'archivado' => fake()->boolean(),
             'id_usuario' => fake()->numberBetween(2,13),
             'id_categoria' => fake()->numberBetween(1,5),
-            'id_grupo' => fake()->numberBetween(1,5)
-
+            'id_grupo' => fake()->numberBetween(1,5),
+            'id_carta' => fake()->numberBetween(1,5),
         ];
     }
 }

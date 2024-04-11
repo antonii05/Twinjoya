@@ -25,6 +25,7 @@ class Task extends Model
         'id_categoria',
         'id_grupo',
         'id_usuario',
+        'id_carta',
     ];
 
 

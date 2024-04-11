@@ -8,4 +8,5 @@ export interface Task{
     id_categoria: number;
     id_grupo: number;
     id_usuario : number;
+    id_carta : number;
 }

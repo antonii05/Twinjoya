@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Cartas;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -17,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserSeeder::class);
         User::factory()->times(15)->create();
-        Task::factory()->times(100)->create();
+        Task::factory()->times(120)->create();
+        Cartas::factory()->times(4)->create();
     }
 }

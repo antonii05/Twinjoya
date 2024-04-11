@@ -1,5 +1,5 @@
 import axios, { type AxiosResponse } from "axios";
-import type{ Task } from "@/VUE/models/Task";
+import type { Task } from "@/VUE/models/Task";
 import type { User } from "@/VUE/models/User";
 
 export default {

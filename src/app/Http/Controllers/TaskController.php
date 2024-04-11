@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
@@ -22,23 +23,16 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Task $task)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Task $task)
-    {
-        //
+        try {
+            DB::beginTransaction();
+            // * Eliminar la varibale para perder tiempo de ejecucion
+            $task = Task::create($request->all());
+            DB::commit();
+            return response()->json(['Tarea guaradad con exito'], 200);
+        } catch (\Exception $err) {
+            DB::rollBack();
+            return response()->json(['BACKEND -> Error al eliminar la tarea ERROR: ' . $err], 500);
+        }
     }
 
     /**
@@ -46,12 +40,20 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        try {
+            DB::beginTransaction();
+            $task->delete();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['BACKEND -> Error al eliminar la tarea ERROR: ' . $e], 500);
+        }
     }
 
     // * ------------------------------ Metodos generados por @autor: Antonio ------------------------------
 
-    public function tareasUser(){
+    public function tareasUser()
+    {
         //! Cuando se cree el login hacer que se busque por el id que tiene el usuario logeado
         $user = User::find(2);
         $tasks = $user->tasks;
