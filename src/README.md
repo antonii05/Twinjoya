@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Antonio José Blázquez Jimene<</h1>
-<h3 align="center">Esto Creando una app encargada de generar una serie de tareas y mostrarselas al usuario</h3>
+<h3 align="center">Estoy creando una App dedicada a las empresa de reparaciones de relojes y joyeria</h3>
 
 -   🔭 I’m currently working on **To Do App**
 

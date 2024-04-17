@@ -30,8 +30,6 @@ Route::prefix('v1/usuarios')->group(function () {
 // Rutas para el controlador de tareas
 Route::prefix('v1/tareas')->group(function () {
     Route::resource('recursos','TaskController');
-    Route::get('/listarTareas',[TaskController::class,'tareasUser']);
-    Route::get('/tarea/{id}',[TaskController::class,'detalle']);
 });
 
 // Rutas para el controlador de Cartas

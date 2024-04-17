@@ -55,27 +55,48 @@ document.addEventListener("DOMContentLoaded", function (event) {
             <div>
                 <div class="nav_list">
                     <router-link to="/home">
-                        <a href="#" class="nav_logo">
+                        <a href="#" class="nav_link">
                             <font-awesome-icon icon="house" />
                             <span class="nav_name">Home</span>
                         </a>
                     </router-link>
 
-                    <router-link to="/calendario">
-                        <a href="#" class="nav_logo nav_link">
-                            <font-awesome-icon icon="calendar" />
-                            <span class="nav_name"> </span>
-                        </a>
-                    </router-link>
-
-                    <router-link to="/archivados">
+                    <router-link to="/clientes">
                         <a href="#" class="nav_link">
-                            <font-awesome-icon icon="box" />
-                            <span class="nav_name">Tareas Archivadas</span>
+                            <font-awesome-icon icon="user" />
+                            <span class="nav_name">Clientes</span>
                         </a>
                     </router-link>
 
-                    <a href="#" class="nav_link">
+                    <router-link to="/reparaciones">
+                        <a href="#" class="nav_link">
+                            <font-awesome-icon icon="hammer" />
+                            <span class="nav_name">Reparaciones</span>
+                        </a>
+                    </router-link>
+
+                    <router-link to="/proveedores">
+                        <a href="#" class="nav_logo nav_link">
+                            <font-awesome-icon icon="handshake" />
+                            <span class="nav_name"> Proveedores </span>
+                        </a>
+                    </router-link>
+
+                    <router-link to="/articulos">
+                        <a href="#" class="nav_logo nav_link">
+                            <font-awesome-icon icon="barcode" />
+                            <span class="nav_name">Articulos</span>
+                        </a>
+                    </router-link>
+                    <router-link to="/configuracion">
+                        <a href="#" class="nav_logo nav_link">
+                            <font-awesome-icon icon="gear" />
+                            <span class="nav_name">Configuracion</span>
+                        </a>
+                    </router-link>
+                    <!-- ! Agregar Compras -->
+
+                    <!-- <a href="#" class="nav_link">
                         <i class="bx bx-bookmark nav_icon"></i>
                         <span class="nav_name">Bookmark</span>
                     </a>
@@ -86,14 +107,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     <a href="#" class="nav_link">
                         <i class="bx bx-bar-chart-alt-2 nav_icon"></i>
                         <span class="nav_name">Stats</span>
-                    </a>
+                    </a> -->
                 </div>
             </div>
             <a href="#" class="nav_link">
-                <font-awesome-icon
-                    icon="right-from-bracket"
-                    class="fa-rotate-180"
-                />
+                <font-awesome-icon icon="right-from-bracket" class="fa-rotate-180" />
                 <span class="nav_name">Cerrar Sessión</span>
             </a>
         </nav>
@@ -132,11 +150,9 @@ a {
     align-items: center;
     justify-content: space-between;
     background: rgb(10, 0, 189);
-    background: linear-gradient(
-        90deg,
-        rgba(10, 0, 189, 1) 0%,
-        rgba(0, 212, 255, 1) 100%
-    );
+    background: linear-gradient(90deg,
+            rgba(10, 0, 189, 1) 0%,
+            rgba(0, 212, 255, 1) 100%);
     padding: 0 1rem;
     z-index: var(--z-fixed);
     transition: 0.5s;
@@ -173,11 +189,9 @@ a {
     width: var(--nav-width);
     height: 100vh;
     background: rgb(10, 0, 189);
-    background: linear-gradient(
-        180deg,
-        rgba(10, 0, 189, 1) 0%,
-        rgba(0, 212, 255, 1) 100%
-    );
+    background: linear-gradient(180deg,
+            rgba(10, 0, 189, 1) 0%,
+            rgba(0, 212, 255, 1) 100%);
     padding: 0.5rem 1rem 0 0;
     transition: 0.5s;
     z-index: var(--z-fixed);
@@ -217,7 +231,7 @@ a {
 .nav_link {
     position: relative;
     color: var(--first-color-light);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     transition: 0.3s;
 }
 

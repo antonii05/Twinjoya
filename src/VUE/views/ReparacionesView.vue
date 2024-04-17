@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <h1>Tareas Archivadas</h1>
-    </div>
+    <h1>Reparaciones</h1>
 </template>
 
 <script setup lang="ts">

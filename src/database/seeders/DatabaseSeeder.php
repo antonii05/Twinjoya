@@ -18,7 +18,5 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserSeeder::class);
         User::factory()->times(15)->create();
-        Task::factory()->times(120)->create();
-        Cartas::factory()->times(4)->create();
     }
 }
