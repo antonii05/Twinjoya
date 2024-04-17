@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                     <router-link to="/reparaciones">
                         <a href="#" class="nav_link">
-                            <font-awesome-icon icon="hammer" />
+                            <font-awesome-icon icon="screwdriver-wrench" />
                             <span class="nav_name">Reparaciones</span>
                         </a>
                     </router-link>

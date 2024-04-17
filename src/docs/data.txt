@@ -1,0 +1,2 @@
+API --
+El funcionamiento de la Api se base en el codigo que se encuentra el Laravel en la parte del los Providers -> RouteServiceProvider.php

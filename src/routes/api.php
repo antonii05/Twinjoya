@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\UsuariosController;
-use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ClientesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,17 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Rutas para el controlador de usuarios
-Route::prefix('v1/usuarios')->group(function () {
-    Route::resource('recursos','UsuariosController');
-});
-
-// Rutas para el controlador de tareas
-Route::prefix('v1/tareas')->group(function () {
-    Route::resource('recursos','TaskController');
-});
-
-// Rutas para el controlador de Cartas
-Route::prefix('v1/cartas')->group(function () {
-    Route::resource('recursos','CartaController');
+// Rutas para el controlador de Clientes
+Route::prefix('v1/clientes')->group(function () {
+    Route::resource('recursos','ClientesController');
+    Route::get('/getClientes',[ClientesController::class,'getAllClientes']);
 });
