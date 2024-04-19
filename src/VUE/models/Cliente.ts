@@ -1,4 +1,5 @@
 export interface Cliente {
+    'id':number;
     'nombre':string;
     'apellidos':string | null;
     'email':string | null;
@@ -10,7 +11,7 @@ export interface Cliente {
     'telefonoFijo': string | null,
     'nif': string | null,
     'grupo_familiar': string | null,
-    'activo': boolean,
+    'activo': boolean | number,
     'tipo_cliente': number | null,
     'fecha_alta': Date | string | null;
     'id_usuario': number;

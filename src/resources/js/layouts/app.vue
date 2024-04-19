@@ -1,18 +1,17 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
-import sideBarComponent from "../../../VUE/components/sideBarComponent.vue";
+import sideBarComponent from '../../../VUE/components/helpers/sideBarComponent.vue';
 </script>
 
 <template>
-    <div>
+    <sideBarComponent>
         <RouterView v-slot="{ Component }">
             <!-- TODO METER TRANSICIONES -->
-            <!-- <transition mode="out-in"> -->
+            <transition name="fade" mode="out-in">
             <component :is="Component" />
-            <!-- </transition> -->
+            </transition>
         </RouterView>
-        <sideBarComponent />
-    </div>
+    </sideBarComponent>
 </template>
 
 

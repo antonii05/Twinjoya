@@ -1,0 +1,5 @@
+body{
+    background-image: url('../images/background.jpg');
+    background-size: cover; /* Esta propiedad hace que la imagen de fondo se ajuste a la resolución del fondo cubriendo todo el área */
+    background-repeat: no-repeat;
+}

@@ -11,6 +11,7 @@ export default {
     },
     async detalleCliente(id: number):Promise<Cliente>{
         return axios.get('/clientes/recursos/' + ""+id).then((response :AxiosResponse) =>{
+            console.log(response.data)
             return response.data 
         })
     }
