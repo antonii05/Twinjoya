@@ -22,6 +22,7 @@ class ClienteFactory extends Factory
             'apellidos' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'direccion' => fake()->streetName(),
+            'cod_postal' => 37300,
             'provincia' => fake()->city(),
             'pais' => fake()->country(),
             'telefono' => fake()->phoneNumber(),
@@ -29,6 +30,7 @@ class ClienteFactory extends Factory
             'activo' => fake()->boolean(),
             'fecha_alta' => fake()->dateTime(now()),
             'id_usuario' => fake()->numberBetween(1,15),
+            'id_empresa' => 1,
         ];
     }
 }

@@ -14,5 +14,6 @@ export interface Cliente {
     'activo': boolean | number,
     'tipo_cliente': number | null,
     'fecha_alta': Date | string | null;
-    'id_usuario': number;
+    'id_usuario': number; //el id usuario es el empleado que le ha dado
+    'id_empresa': number;
 }

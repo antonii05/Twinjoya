@@ -25,6 +25,7 @@ class Cliente extends Model
         'tipo_cliente',
         'fecha_alta',
         'id_usuario',
+        'id_empresa',
     ];
 
     public static function generarNifAleatorio()

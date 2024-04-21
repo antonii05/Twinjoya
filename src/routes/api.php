@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\EmpresaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Rutas para el controlador de Clientes
 Route::prefix('v1/clientes')->group(function () {
-    Route::resource('recursos','ClientesController');
-    Route::get('/getClientes',[ClientesController::class,'getAllClientes']);
+    Route::resource('recursos', 'ClientesController');
+    Route::get('/getClientes', [ClientesController::class, 'getAllClientes']);
+    Route::delete('/eliminar/{id}',[ClientesController::class,'eliminar']);
+    Route::put('/actualizar',[ClientesController::class,'actualizar']);
+    Route::post('/crear',[ClientesController::class,'crear']);
+});
+
+//Ruta para la Empresa
+
+Route::prefix('v1/empresas')->group(function () {
+    Route::get('/getTalleres/{idEmpresa}', [EmpresaController::class, 'getTalleres']);
 });

@@ -22,12 +22,13 @@ return new class extends Migration
             $table->string('pais')->nullable();
             $table->string('telefono')->nullable();   //es posible que se puedan cambiar a string en un futuro
             $table->string('telefonoFijo')->nullable();
-            $table->string('nif')->nullable();
+            $table->string('nif')->unique()->nullable();
             $table->string('grupo_familiar')->nullable();
             $table->boolean('activo');  //mas tarde es posible un cambio
             $table->integer('tipo_cliente')->nullable();
             $table->timestamp('fecha_alta')->nullable();
             $table->integer('id_usuario');
+            $table->integer('id_empresa');
             $table->timestamps();
         });
     }

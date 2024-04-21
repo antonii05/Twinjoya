@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(UserSeeder::class);
+        $this->call(EmpresaSeeder::class);
+        $this->call(TallerSeeder::class);
         User::factory()->times(15)->create();
         Cliente::factory()->times(50)->create();
     }

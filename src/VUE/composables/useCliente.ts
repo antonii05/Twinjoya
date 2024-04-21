@@ -44,7 +44,7 @@ export function useCliente() {
             case 'fechaSenialada':
                 selector.value = 'fechaSenialada';
                 break;
-                //TODO AÑADIR MAS
+            //TODO AÑADIR MAS
             case '':
                 break;
 
@@ -53,12 +53,55 @@ export function useCliente() {
         }
     }
 
+    const nuevoCliente = () => {
+        //! CAMBIAR EL USUARIO AL EMPLEADO AL QUE LE HAYA DADO DE ALTA (SERA EL QUE ESTE LOGEADO)
+        cliente.value = {} as Cliente;
+        cliente.value.activo = true;
+        cliente.value.tipo_cliente = -1;
+        cliente.value.id_usuario = 1
+        ruta.push('/cliente/nuevo');
+    }
+
     //-----------------------------------------ACCIONES CRUD---------------------------------------------
 
-    
-    
+
+    const eliminar = async (id_cliente: number) => {
+        try {
+            await ClientesApi.eliminarCliente(id_cliente).then((status) => {
+                if (status == 200) {
+                    console.log('El Cliente se ha eliminado correctamente');
+                    ruta.push('/clientes');
+                    window.location.reload(); // cambiar mas adelante
+                } else {
+                    console.log('El Cliente no se ha podido eliminar');
+                }
+            });
+        } catch (error) {
+
+        }
+    }
+
+    const modificar = async (nuevoCliente: Cliente) => {
+        try {
+            await ClientesApi.update(nuevoCliente).then((respuesta) => {
+                console.log(respuesta);
+            })
+        } catch (error) {
+            console.log("Ocurrio un error al hacer la peticion de update a la API ERROR: " + error);
+        }
+    }
+
+    const crear = async (nuevoCliente: Cliente) => {
+        try {
+            await ClientesApi.crear(nuevoCliente).then((respuesta) => {
+                console.log(respuesta);
+            })
+        } catch (error) {
+            console.log("Ocurrio un error al hacer la peticion de creacion a la API ERROR: " + error);
+        }
+    }
+
     //-----------------------------------------ACCIONES CRUD---------------------------------------------
 
-
-    return { cliente, clientes, selector, cambiarPestania, cargarClientes, detalle }
+    return { cliente, clientes, selector, cambiarPestania, cargarClientes, detalle, eliminar, nuevoCliente, modificar, crear }
 }
