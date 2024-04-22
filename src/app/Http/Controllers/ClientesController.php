@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ClientesController extends Controller
 {
@@ -69,8 +70,16 @@ class ClientesController extends Controller
      */
     public function actualizar(Request $request)
     {
-        $idCliente = $request->id;
-        return $request;
+        try {
+            DB::beginTransaction();
+            $cliente = Cliente::findOrFail($request->id);
+            $cliente->update($request->all());
+            DB::commit();
+            return response()->json('Cliente modificado con exito', 200);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json('Modificacion del cliente fallida ERROR: ' . $e, 500);
+        }
     }
 
     /**
@@ -79,6 +88,9 @@ class ClientesController extends Controller
 
     public function crear(Request $request)
     {
+        $today = Carbon::now(); // Obtiene la fecha y hora actual en la zona horaria predeterminada
+        $date = $today->toDateTimeString(); // Obtiene solo la parte de la fecha en formato 'YYYY-MM-DD'
+        $request->merge(['fecha_alta' => $date]);
         try {
             DB::beginTransaction();
             Cliente::create($request->all());
@@ -97,6 +109,5 @@ class ClientesController extends Controller
      */
     private function comprobarValoresOK(Request $request)
     {
-        
     }
 }

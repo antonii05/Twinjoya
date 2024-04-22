@@ -18,9 +18,11 @@
                 <button type="button" class="btn btn-info" @click="cambiarPestania('detalle')">Información</button>
                 <button type="button" class="btn btn-info" @click="cambiarPestania('facturacion')">Datos
                     Facturación</button>
-                <button type="button" class="btn btn-info" @click="cambiarPestania('facturacion')">Fechas
+                <button type="button" class="btn btn-info" @click="cambiarPestania('fechaSenialada')">Fechas
                     Señaladas</button>
-                <button type="button" class="btn btn-info">Code..</button>
+                <button type="button" class="btn btn-info" @click="cambiarPestania('cuenta_cte')">Cuenta Cte</button>
+                <button type="button" class="btn btn-info" @click="cambiarPestania('g_Apartado')">G Apartado</button>
+                <button type="button" class="btn btn-info" @click="cambiarPestania('notas')">Notas</button>
             </div>
 
         </div>
@@ -38,9 +40,25 @@
         <div class="datosFacturacion" v-if="selector == 'facturacion'">
             <datosFacturacion />
         </div>
-        <!-- MORE CODE HERE -->
+
+        <div class="datosFacturacion" v-if="selector == 'fechaSenialada'">
+            <fechasSenialadas />
+        </div>
+
+        <div class="datosFacturacion" v-if="selector == 'cuenta_cte'">
+            <cuentaCorriente />
+        </div>
+
+        <div class="datosFacturacion" v-if="selector == 'g_Apartado'">
+            <apartados />
+        </div>
+
+        <div class="datosFacturacion" v-if="selector == 'notas'">
+            <notas />
+        </div>
 
     </div>
+    {{ selector }}
 </template>
 
 <script setup lang="ts">
@@ -49,11 +67,16 @@ import { useRoute } from "vue-router";
 import { useCliente } from "@/VUE/composables/useCliente";
 import detalleCliente from "@/VUE/components/clientes/detalleCliente.vue";
 import datosFacturacion from "@/VUE/components/clientes/datosFacturacion.vue";
+import cuentaCorriente from "@/VUE/components/clientes/cuentaCorrienteCliente.vue";
+import fechasSenialadas from "@/VUE/components/clientes/fechasSenialadasCliente.vue";
+import apartados from "@/VUE/components/clientes/apartadosCliente.vue";
+import notas from "@/VUE/components/clientes/notasCliente.vue";
+
 import CardComponent from "@/VUE/components/helpers/CardComponent.vue";
 import BotonesCrud from "@/VUE/components/helpers/BotonesCrudComponent.vue";
 
 //Estrcuctura Composable
-const { selector, cliente, cambiarPestania, detalle, modificar, eliminar, crear ,nuevoCliente} = useCliente();
+const { selector, cliente, cambiarPestania, detalle, modificar, eliminar, crear, nuevoCliente } = useCliente();
 
 const route = useRoute();
 
@@ -62,7 +85,7 @@ onMounted(async () => {
     try {
         if (route.params.id) {
             detalle(parseInt(route.params.id as string));
-        }else{
+        } else {
             nuevoCliente()
         }
     } catch (error) {

@@ -1,6 +1,6 @@
 <template>
     <CardComponent>
-        <h2>Datos Facturación</h2>
+        <h2>Cuenta Corriente</h2>
     </CardComponent>
 </template>
 

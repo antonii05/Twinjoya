@@ -1,36 +1,29 @@
-import { ref, onMounted, onUnmounted } from 'vue'
-import type { Cliente } from "@/VUE/models/Cliente";
-import ClientesApi from "@/VUE/api/ClientesApi";
+import { ref } from 'vue'
+import type { Proveedor } from "@/VUE/models/Proveedor";
+import ProveedorApi from "@/VUE/api/ProveedorApt";
 import { useRouter } from 'vue-router'
 
 
 
-export function useCliente() {
+export function useProveedor() {
 
     //variables
     const ruta = useRouter();
-    const clientes = ref([] as Cliente[]);
-    const cliente = ref({} as Cliente);
+    const proveedores = ref([] as Proveedor[]);
+    const proveedor = ref({} as Proveedor);
     const selector = ref('');
-    const fecha = new Date();
 
 
-    const cargarClientes = async () => {
+    const cargarProveedores = async () => {
         try {
-            clientes.value = await ClientesApi.getClientes();
+            proveedores.value = await ProveedorApi.getProveedores();
         } catch (e) {
             console.log('Error en la carga de los clientes ERROR: ' + e);
         }
     }
 
     const detalle = async (id: number) => {
-        try {
-            ruta.push('/cliente/detalle/' + id);
-            cliente.value = await ClientesApi.detalleCliente(id);
-            cliente.value.activo = !!cliente.value.activo;
-        } catch (error) {
-            console.log('Error en la carga del detalle del Cliente' + error);
-        }
+    
     }
 
     //FUNCTIONS
@@ -42,40 +35,31 @@ export function useCliente() {
             case 'facturacion':
                 selector.value = 'facturacion';
                 break;
-            case 'fechaSenialada':
-                selector.value = 'fechaSenialada';
+            case 'datosTaller':
+                selector.value = 'datosTaller';
                 break;
-            //TODO AÑADIR MAS
-            case 'cuenta_cte':
-                selector.value = 'cuenta_cte';
-                break;
-            case 'g_Apartado':
-                selector.value = 'g_Apartado';
+            case 'representante':
+                selector.value = 'representante';
                 break;
             case 'notas':
                 selector.value = 'notas';
                 break;
-
-
-            default:
-                break;
         }
     }
 
-    const nuevoCliente = () => {
+    const nuevoProveedor = () => {
         //! CAMBIAR EL USUARIO AL EMPLEADO AL QUE LE HAYA DADO DE ALTA (SERA EL QUE ESTE LOGEADO)
-        cliente.value = {} as Cliente;
-        cliente.value.activo = true;
-        cliente.value.tipo_cliente = -1;
-        cliente.value.id_usuario = 1
-        ruta.push('/cliente/nuevo');
+        proveedor.value = {} as Proveedor;
+        proveedor.value.activo = true;
+        proveedor.value.id_usuario = 1;
+        ruta.push('/proveedor/nuevo');
     }
 
     //-----------------------------------------ACCIONES CRUD---------------------------------------------
 
 
     const eliminar = async (id_cliente: number) => {
-        try {
+        /* try {
             await ClientesApi.eliminarCliente(id_cliente).then((status) => {
                 if (status == 200) {
                     console.log('El Cliente se ha eliminado correctamente');
@@ -86,12 +70,12 @@ export function useCliente() {
                 }
             });
         } catch (error) {
-
-        }
+            console.log(error);
+        } */
     }
 
-    const modificar = async (nuevoCliente: Cliente) => {
-        try {
+    const modificar = async (nuevoCliente: Proveedor) => {
+        /* try {
             await ClientesApi.update(nuevoCliente).then((respuesta) => {
                 if (respuesta.status == 200) {
                     ruta.push('/clientes');
@@ -100,11 +84,11 @@ export function useCliente() {
             });
         } catch (error) {
             console.log("Ocurrio un error al hacer la peticion de update a la API ERROR: " + error);
-        }
+        } */
     }
 
-    const crear = async (nuevoCliente: Cliente) => {
-        try {
+    const crear = async (nuevoCliente: Proveedor) => {
+        /* try {
             await ClientesApi.crear(nuevoCliente).then((respuesta) => {
                 if (respuesta.status == 200) {
                     ruta.push('/clientes');
@@ -113,10 +97,10 @@ export function useCliente() {
             })
         } catch (error) {
             console.log("Ocurrio un error al hacer la peticion de creacion a la API ERROR: " + error);
-        }
+        } */
     }
 
     //-----------------------------------------ACCIONES CRUD---------------------------------------------
 
-    return { cliente, clientes, selector, cambiarPestania, cargarClientes, detalle, eliminar, nuevoCliente, modificar, crear }
+    return { proveedor, proveedores, selector, cambiarPestania, cargarProveedores, detalle, eliminar, nuevoProveedor, modificar, crear }
 }

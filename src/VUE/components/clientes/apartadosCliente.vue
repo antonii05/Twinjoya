@@ -1,6 +1,6 @@
 <template>
     <CardComponent>
-        <h2>Datos Facturación</h2>
+        <h2>Productos Apartados</h2>
     </CardComponent>
 </template>
 

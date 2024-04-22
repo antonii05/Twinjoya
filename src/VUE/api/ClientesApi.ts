@@ -22,7 +22,7 @@ export default {
     },
     async crear(cliente: Cliente) {
         return axios.post('/clientes/crear', cliente).then((response: AxiosResponse) => {
-            return response.data;
+            return response;
         })
     },
     async update(cliente: Cliente) {

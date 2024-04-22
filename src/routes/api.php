@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\ProveedorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,4 +36,8 @@ Route::prefix('v1/clientes')->group(function () {
 
 Route::prefix('v1/empresas')->group(function () {
     Route::get('/getTalleres/{idEmpresa}', [EmpresaController::class, 'getTalleres']);
+});
+
+Route::prefix('v1/proveedores')->group(function(){
+    Route::get('/getProveedores',[ProveedorController::class,'getProveedores']);
 });

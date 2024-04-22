@@ -28,6 +28,7 @@ class ClienteFactory extends Factory
             'telefono' => fake()->phoneNumber(),
             'nif' => Cliente::generarNifAleatorio(),
             'activo' => fake()->boolean(),
+            'tipo_cliente' => fake()->numberBetween(0,3),
             'fecha_alta' => fake()->dateTime(now()),
             'id_usuario' => fake()->numberBetween(1,15),
             'id_empresa' => 1,

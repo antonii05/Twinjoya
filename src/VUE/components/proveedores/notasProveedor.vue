@@ -1,6 +1,6 @@
 <template>
     <CardComponent>
-        <h2>Datos Facturación</h2>
+        <h2>Notas</h2>
     </CardComponent>
 </template>
 
@@ -8,8 +8,15 @@
 import { onMounted } from "vue";
 import CardComponent from "../helpers/CardComponent.vue";
 
+defineProps({
+    proveedor:{
+        type: Object,
+        required: true,
+    }
+})
+
 //posible async
-onMounted(()=>{
+onMounted(() => {
 
 });
 </script>
