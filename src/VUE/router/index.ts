@@ -42,6 +42,11 @@ const router = createRouter({
       component: () => import('@/VUE/components/proveedores/listadoProveedores.vue'),
     },
     {
+      path: '/proveedor/informacion/:id(\\d+)',
+      name: 'proveedorInformacion',
+      component: () => import("@/VUE/views/ProveedoresView.vue"),
+    },
+    {
       path: '/proveedor/nuevo',
       name: 'proveedorNuevo',
       component: () => import('@/VUE/views/ProveedoresView.vue'),
@@ -50,7 +55,7 @@ const router = createRouter({
       path: '/articulos',
       name: 'articulos',
       component: () => import('@/VUE/views/ArticulosView.vue'),
-    }, 
+    },
     {
       path: '/configuracion',
       name: 'configuracion',

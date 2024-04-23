@@ -24,6 +24,7 @@
                     <td>{{ item.provincia }}</td>
                     <td>{{ item.direccion }}</td>
                     <td class="eliminar text-center">
+                        <!-- El .stop hace que no se ejecute mas opciones una vez ejecutado ese @click -->
                         <button class="btn btn-danger" @click.stop="eliminar(item.id)">
                             <font-awesome-icon icon="trash-can" color="#fff" />
                         </button>

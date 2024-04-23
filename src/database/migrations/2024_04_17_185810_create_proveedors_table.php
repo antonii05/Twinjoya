@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('proveedors', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('codigo')->unique();
             $table->string('nombre_fiscal');
             $table->string('direccion')->nullable();
             $table->unsignedInteger('cod_postal')->nullable();
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->string('telefono2')->nullable();
             $table->string('cif')->nullable();
             $table->string('email')->unique()->nullable();
+            $table->string('web')->nullable();
             $table->boolean('activo');
             $table->integer('id_empresa');
             $table->integer('id_usuario');

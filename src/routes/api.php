@@ -40,4 +40,8 @@ Route::prefix('v1/empresas')->group(function () {
 
 Route::prefix('v1/proveedores')->group(function(){
     Route::get('/getProveedores',[ProveedorController::class,'getProveedores']);
+    Route::get('/getProveedor/{id}',[ProveedorController::class,'detalle']);
+    Route::delete('/eliminar/{id}',[ProveedorController::class,'eliminar']);
+    Route::post('/crear',[ProveedorController::class,'crear']);
+    Route::put('/actualizar',[ProveedorController::class,'actualizar']);
 });

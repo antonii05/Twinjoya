@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, resolveComponent } from 'vue'
 import type { Proveedor } from "@/VUE/models/Proveedor";
 import ProveedorApi from "@/VUE/api/ProveedorApt";
 import { useRouter } from 'vue-router'
@@ -23,7 +23,18 @@ export function useProveedor() {
     }
 
     const detalle = async (id: number) => {
-    
+        try {
+            await ProveedorApi.detalleProveedor(id)
+                .then((respuesta) => {
+                    ruta.push('/proveedor/informacion/' + id);
+                    proveedor.value = respuesta.data;
+                    proveedor.value.activo = (Boolean)(proveedor.value.activo);
+                }).catch((e) => {
+                    console.log('ERROR AL OPERARAR CON LA API DE PROVEEDORES (FRONTEND)');
+                });
+        } catch (error) {
+            console.log('Error al intentar ver el detalle del Proveedor ' + id + 'Error : ' + error);
+        }
     }
 
     //FUNCTIONS

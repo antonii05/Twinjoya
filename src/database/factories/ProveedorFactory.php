@@ -17,6 +17,7 @@ class ProveedorFactory extends Factory
     public function definition(): array
     {
         return [
+            'codigo' => fake()->unique()->numberBetween(0,400),
             'nombre_fiscal' => fake()->company(),
             'direccion' => fake()->streetName(),
             'cod_postal' => 37300,
@@ -26,6 +27,7 @@ class ProveedorFactory extends Factory
             'telefono2' => fake()->phoneNumber(),
             'cif' => "12345678Z",
             'email' => fake()->unique()->safeEmail(),
+            'web' => fake()->url(),
             'activo' => fake()->boolean(),
             'id_empresa' => 1,
             'id_usuario' => fake()->numberBetween(1, 15),

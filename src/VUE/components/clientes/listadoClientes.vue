@@ -12,7 +12,7 @@
                 <tr class="encabezado">
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Apellidos</th>
+                    <th>Provincia</th>
                     <th>Cod Postal</th>
                     <th>Teléfono</th>
                     <th>NIF</th>
@@ -20,8 +20,8 @@
                 <!-- !Intentar hacer con el el router-link -->
                 <tr class="filas" v-for="(cliente, index) in clientes" :key="index" @click="detalle(cliente.id)">
                     <th class="text-primary">{{ cliente.id }}</th>
-                    <td>{{ cliente.nombre }}</td>
-                    <td>{{ cliente.apellidos }}</td>
+                    <td>{{ cliente.nombre + ' '+ cliente.apellidos}}</td>
+                    <td>{{ cliente.provincia }}</td>
                     <td>{{ cliente.cod_postal }}</td>
                     <td>{{ cliente.telefono }}</td>
                     <td>{{ cliente.nif }}</td>

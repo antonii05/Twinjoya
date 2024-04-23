@@ -7,3 +7,7 @@
 -------------------------------------------------------------------
 
 23 Abr -- 
+-------------------------------------------------------------------
+ 
+24 Abr -- Crear la estructura CRUD de la informacion del Proveedor (medio terminado)
+    meter https://gist.github.com/arodu/9ca3663044a07810ff6f en Proveedores

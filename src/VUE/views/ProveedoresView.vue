@@ -1,13 +1,14 @@
 <template>
     <div v-if="proveedor.id">
         <CardComponent size="col-5">
-            <h1>Proveedor</h1>
+            <h1>{{ 'Proveedor: ' + proveedor.nombre_fiscal }}</h1>
+            <h3 class="my-4">{{ 'Código: ' + proveedor.codigo}}</h3>
             <h6>Meter Informacion del empleaado que le ha dado de alta</h6>
         </CardComponent>
     </div>
 
     <div v-if="!proveedor.id">
-        <CardComponent size="col-3">
+        <CardComponent size="col-4">
             <h1 class="text-center">Creación del Proveedor</h1>
         </CardComponent>
     </div>
@@ -37,7 +38,7 @@
         </div>
 
         <div class="datosFacturacion" v-if="selector == 'facturacion'">
-            <datosFacturacion :proveedor="proveedor"/>
+            <datosFacturacion :proveedor="proveedor" />
         </div>
 
         <div class="datosFacturacion" v-if="selector == 'datosTaller'">
@@ -51,8 +52,8 @@
         <div class="datosFacturacion" v-if="selector == 'notas'">
             <notas :proveedor="proveedor" />
         </div>
-
     </div>
+    {{ proveedor }}
 </template>
 
 <script setup lang="ts">
