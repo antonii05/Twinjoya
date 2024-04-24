@@ -7,15 +7,15 @@ const router = createRouter({
 
   routes: [
     {
+      path: '/',
+      name: 'incio',
+      component: () => import('@/VUE/views/HomeView.vue'),
+    },
+    {
       path: '/home',
       name: 'home',
       component: () => import('@/VUE/views/HomeView.vue'),
     },
-    /* {
-      path: '/calendario',
-      name: 'calendario',
-      component: () => import('@/VUE/views/CalendarioView.vue'),
-    }, */
     {
       path: '/reparaciones',
       name: 'reparaciones',

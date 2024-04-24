@@ -1,32 +1,5 @@
 API --
 El funcionamiento de la Api se base en el codigo que se encuentra el Laravel en la parte del los Providers -> RouteServiceProvider.php
 
-
----------------MENU PESTAÑAS---------------
-<ul class="nav nav-pills">
-        <li class="nav-item">
-            <a class="nav-link">Detalle</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Datos Facturación</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">F Señaladas</a>
-            //En facturas señaladas, se envia un codigo de descuento enviar por los datos de contatcto
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Cuenta Cte</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Genero Apartado</a>
-            //reserva de un producto a X cliente (el cliente debe de tener credito en la DB)
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Notas</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Foto</a>
-        </li>
-    </ul>
-
----------------MENU PESTAÑAS---------------
+--Para que los clientes funcionen el usuario debe de pasarle el nombre, y el id_empresa al menos (los campos id_usuario y activo se generan automaticamente) 
+--PARA QUE EL PROVEEDOR FUNCIONE le deberemos de pasar al menos el nombre fiscal, el codigo, y el id de la empresa (los campos id_usuario y activo se rellenan solos)

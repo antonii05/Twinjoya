@@ -55,8 +55,6 @@
                     </div>
                 </div>
 
-                <!--! Meter el codigo si no es cliente en la parte izquierda del contendor   -->
-
             </div>
 
 
@@ -99,6 +97,15 @@
                         <span class="input-group-text">Dado de Alta</span>
                         <input type="datetime-local" class="form-control form-control-md"
                             v-model="proveedor.fecha_modificacion" disabled>
+                    </div>
+                </div>
+
+                <div class="ms-auto col-4">
+                    <div class="input-group">
+                        <label for="id_empresa" class="text-success">* Tienda 1 por defecto</label>
+                        <span class="input-group-text">Tienda de Referencia</span>
+                        <input class="form-control form-control-md" type="number" id="id_empresa" v-model="proveedor.id_empresa"
+                        :disabled="!!proveedor.id">
                     </div>
                 </div>
 
