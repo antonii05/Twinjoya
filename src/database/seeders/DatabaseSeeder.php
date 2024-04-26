@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
         User::factory()->times(15)->create();
         Cliente::factory()->times(50)->create();
         Proveedor::factory()->times(10)->create();
-
+        $this->call(FamiliasSeeder::class);
     }
 }

@@ -42,26 +42,24 @@
                         </a>
                     </router-link>
                 </li>
-                <li>
-                    <router-link to="/configuracion">
-                        <a href="#" class="nav_logo nav_link">
-                            <font-awesome-icon icon="gear" />
-                        </a>
-                    </router-link>
-                </li>
             </ul>
-            <!-- <div class="dropdown">
-                    <a href="#"
-                        class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
-                        id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi-person-circle h2"></i>
-                    </a>
-                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                    </ul>
-                </div> -->
+            <div class="dropdown">
+                <a href="#"
+                    class="d-flex align-items-center justify-content-center p-3 dropdown-toggle nav_logo nav_link"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <font-awesome-icon icon="gear" />
+                </a>
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                    <li @click="$router.push('/configuracion/familias')"><a class="dropdown-item"><font-awesome-icon
+                                icon="people-roof" /> Familias</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" @click="$router.push('/configuracion/familias/config/adicional')">
+                            <font-awesome-icon icon="users-gear" /> Configuración Adicional Familias</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#">code..</a></li>
+                </ul>
+            </div>
         </div>
         <div class="col-sm p-3 min-vh-100">
             <RouterView />
@@ -70,8 +68,7 @@
 </template>
 
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
-</script>\
+</script>
 
 <style>
 .nav_logo,

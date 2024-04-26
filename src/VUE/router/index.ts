@@ -60,6 +60,26 @@ const router = createRouter({
       path: '/configuracion',
       name: 'configuracion',
       component: () => import('@/VUE/views/configuracion/ConfiguracionView.vue'),
+    },
+    {
+      path: '/configuracion/familias',
+      name: 'configuracionFamilias',
+      component: () => import('@/VUE/components/familias/listadoFamilias.vue'),
+    },
+    {
+      path: '/configuracion/familia/:id(\\d+)',
+      name: 'configuracionFamiliaInfo',
+      component: () => import('@/VUE/views/configuracion/ConfiguracionFamiliasView.vue'),
+    },
+    {
+      path: '/configuracion/familias/nuevo',
+      name: 'configuracionFamiliasNuevo',
+      component: () => import('@/VUE/views/configuracion/ConfiguracionFamiliasView.vue'),
+    },
+    {
+      path: '/configuracion/familias/config/adicional',
+      name: 'configuracionSecciones',
+      component: () => import('@/VUE/views/configuracion/ConfiguracionSeccionesView.vue'),
     }
   ]
 })

@@ -12,4 +12,5 @@
 24 Abr -- Crear la estructura CRUD de la informacion del Proveedor (medio terminado)
 
 25 Abr -- Arreglar fallo en consola despues de eliminar un proveedor (revisar que no pase con los clientes)
+     Aniadir hr vertical con boostrap en todos los detalles, instalar multiselect ya que permite la busqueda
  

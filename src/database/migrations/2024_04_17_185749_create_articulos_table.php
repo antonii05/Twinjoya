@@ -13,6 +13,19 @@ return new class extends Migration
     {
         Schema::create('articulos', function (Blueprint $table) {
             $table->id();
+            $table->string('codigo')->unique()->nullable();
+            $table->text('descripcion')->nullable();
+            $table->string('matricula')->nullable();
+            $table->string('medida')->nullable();
+            $table->integer('id_familia');      //donde se desplegara un select con las familias registradas y activas
+            $table->integer('id_proveedor'); //donde se desplegara un select con los proveedores registrados y activos
+            $table->string('tipo_compra')->nullable();     //mas adelante ver que es
+            $table->string('barcode')->nulblela();
+            //? $table->integer('id_marcas')->nulblela();
+            $table->decimal('precio_venta');
+            $table->boolean('compras_unidad_medida'); //por defecto estara activado como unidad == 0
+            $table->boolean('ventas_unidad_medida'); //por defecto estara activado como unidad == 0
+            $table->boolean('articulo_obsoleto')->nullable();
             $table->timestamps();
         });
     }

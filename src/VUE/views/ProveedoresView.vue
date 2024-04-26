@@ -2,7 +2,7 @@
     <div v-if="proveedor.id">
         <CardComponent size="col-5">
             <h1>{{ 'Proveedor: ' + proveedor.nombre_fiscal }}</h1>
-            <h3 class="my-4">{{ 'Código: ' + proveedor.codigo}}</h3>
+            <h3 class="my-4 text-uppercase">{{ 'Código: ' + proveedor.codigo}}</h3>
             <h6>Meter Informacion del empleaado que le ha dado de alta</h6>
         </CardComponent>
     </div>

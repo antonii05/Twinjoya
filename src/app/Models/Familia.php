@@ -5,23 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Articulo extends Model
+class Familia extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'codigo',
-        'descripcion',
-        'matricula',
-        'medida',
-        'id_familia',
-        'id_proveedor',
-        'tipo_compra',
-        'barcode',
-        'precio_venta',
+        'descripcion_familia',
+        'unidad_medida',
+        'texto_etiqueta',
+        'contador',
+        'descuento',
+        'imprimir_ventas',
         'compras_unidad_medida',
+        'compras_has_metal',
+        'compras_subcuenta_asociada',
         'ventas_unidad_medida',
-        'articulo_obsoleto',
+        'ventas_subcuenta_asociada',
         'created_at',
         'updated_at',
     ];

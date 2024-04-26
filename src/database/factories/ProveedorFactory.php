@@ -17,7 +17,7 @@ class ProveedorFactory extends Factory
     public function definition(): array
     {
         return [
-            'codigo' => fake()->unique()->numberBetween(0,400),
+            'codigo' => fake()->unique()->regexify('[A-Za-z0-9]{6}'),
             'nombre_fiscal' => fake()->company(),
             'direccion' => fake()->streetName(),
             'cod_postal' => 37300,

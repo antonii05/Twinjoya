@@ -74,7 +74,7 @@
                 <div class="col-3 ms-auto" v-if="!proveedor.id">
                     <div class="input-group my-4">
                         <span class="input-group-text">Codigo</span>
-                        <input type="number" class="form-control form-control-md" v-model="proveedor.codigo">
+                        <input type="text" class="form-control form-control-md text-uppercase" v-model="proveedor.codigo">
                     </div>
                 </div>
 
