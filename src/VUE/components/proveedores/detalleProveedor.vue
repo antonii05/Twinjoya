@@ -1,6 +1,9 @@
 <template>
     <CardComponent>
         <h2>Informacion Del Proveedor</h2>
+        <div class="progress my-3" role="progressbar" aria-valuenow="100" style="height: 1px">
+            <div class="progress-bar w-100 bg-info"></div>
+        </div>
         <div class="row">
 
             <!-- First Column -->

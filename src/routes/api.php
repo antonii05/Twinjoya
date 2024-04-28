@@ -4,6 +4,7 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\FamiliaController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\SeccionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -50,4 +51,11 @@ Route::prefix('v1/proveedores')->group(function () {
 Route::prefix('/v1/familias')->group(function () {
     Route::get('/getFamilias', [FamiliaController::class, 'getFamilias']);
     Route::get('/getFamilia/{id}', [FamiliaController::class, 'getFamilia']);
+});
+
+Route::prefix('/v1/secciones')->group(function () {
+    Route::get('/getSecciones', [SeccionController::class, 'getSecciones']);
+    Route::delete('/eliminar/{id}', [SeccionController::class, 'eliminar']);
+    Route::post('/crear', [SeccionController::class, 'crear']);
+    Route::put('/actualizar', [SeccionController::class, 'actualizar']);
 });

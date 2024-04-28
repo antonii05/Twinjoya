@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('secciones', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->unique();
+            $table->string('prefijo')->nullable();
             $table->text('descripcion')->nullable();
             $table->timestamps();
         });

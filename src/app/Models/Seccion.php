@@ -9,8 +9,11 @@ class Seccion extends Model
 {
     use HasFactory;
 
-    protected $filliable = [
+    //aqui indicamos en nuevo nombre de la tabla al que hace referencia
+    protected $table = 'secciones';
+    protected $fillable = [
         'nombre',
+        'prefijo',
         'descripcion',
     ];
 }

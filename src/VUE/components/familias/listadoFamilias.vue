@@ -18,7 +18,7 @@
                 <!-- !Intentar hacer con el el router-link -->
                 <tr class="filas" v-for="(item, index) in familias" :key="index" @click="detalle(item.id)">
                     <th class="text-primary">{{ item.id }}</th>
-                    <td>{{ item.codigo }}</td>
+                    <td class="text-uppercase">{{ item.codigo }}</td>
                     <td>{{ item.descripcion_familia }}</td>
                     <td>{{ item.id_seccion }}</td>
                     <td class="eliminar text-center">
