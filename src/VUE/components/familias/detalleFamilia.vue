@@ -6,7 +6,7 @@
             <h1>Información Familia</h1>
 
             <!-- PROGRESS BAR -->
-            <div class="progress my-3" role="progressbar" aria-valuenow="100" style="height: 2px">
+            <div class="progress my-3" role="progressbar" aria-valuenow="100" style="height: 1px">
                 <div class="progress-bar w-100 bg-info"></div>
             </div>
 
@@ -15,7 +15,7 @@
 
                 <!-- !cambiar el tamñao de las 3 columnas para que la Descripccion ocupe mas -->
                 <div class="col col-lg-4 d-flex justify-content-center">
-                    <div class="col-6 col">
+                    <div class="col-8 col">
                         <div class="input-group my-4">
                             <span class="input-group-text">Código</span>
                             <input class="form-control form-control-md" type="text" v-model="familia.codigo">
@@ -24,15 +24,16 @@
                 </div>
 
                 <div class="col col-lg-4 d-flex justify-content-center">
-                    <div class="col-6 col my-3">
+                    <div class="my-3">
                         <textarea cols="35" rows="2 " class="form-control form-control-md"
-                            v-model="familia.descripcion_familia" placeholder="Descripción"></textarea>
+                            placeholder="Descripción"></textarea>
                     </div>
                 </div>
 
                 <div class="col col-lg-4 d-flex justify-content-center">
-                    <div class="col-6 col my-4">
-                        Añadir VueMultiselect
+                    <div class="my-4 col-10">
+                        <VueMultiselect v-model="familia.unidad_medida" :options="unidadesMedida" placeholder="Medida: "
+                            :close-on-select="true"></VueMultiselect>
                     </div>
                 </div>
             </div>
@@ -46,8 +47,8 @@
             <div class="row mt-3">
 
                 <div class="col col-lg-3 d-flex justify-content-center my-3">
-                    <VueMultiselect v-model="familia.unidad_medida" :options="unidadesMedida"
-                        placeholder="Seleccione una opcion" :close-on-select="true" >
+                    <VueMultiselect v-model="familia.unidad_medida" :options="unidadesMedida" placeholder="Medida: "
+                        :close-on-select="true">
                     </VueMultiselect>
                 </div>
 
@@ -59,25 +60,20 @@
                 </div>
 
                 <div class="col col-lg-3 d-flex justify-content-center">
-                    <div class="col-8 col">
-                        <div class="input-group my-3">
-                            <span class="input-group-text">Contador</span>
-                            <input class="form-control form-control-md" type="number" v-model="familia.contador">
-                        </div>
+                    <div class="input-group my-3">
+                        <span class="input-group-text">Contador</span>
+                        <input class="form-control form-control-md" type="number" v-model="familia.contador">
                     </div>
                 </div>
 
                 <div class="col col-lg-3 d-flex justify-content-center">
-                    <div class="col col-7">
 
-                        <div class="input-group my-3">
-                            <span class="input-group-text">Desc Especial</span>
-                            <input class="form-control form-control-md text-center" type="number"
-                                v-model="familia.descuento">
-                        </div>
+                    <div class="input-group my-3">
+                        <span class="input-group-text">Desc Especial</span>
+                        <input class="form-control form-control-md text-center" type="number"
+                            v-model="familia.descuento">
                     </div>
                 </div>
-
             </div>
 
             <!-- PROGRESS BAR -->
@@ -86,14 +82,68 @@
             </div>
 
             <div class="row">
-                <div class="col col-lg-6 d-flex justify-content-center">
-                    hola
+                <!-- Priemra Columuna -->
+                <div class="col col-lg-6 col-md-12 col-sm-12">
+                    <div class="offset-2">
+                        <h4 class="mt-2 mb-4 d-flex justify-content-center">Compras</h4>
+
+                        <div class="my-3">
+                            <span>Unidad de medida: </span>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="radios1" id="radio1" checked>
+                                <label for="radio1">Unidad</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="radios1" id="radio2">
+                                <label for="radio2">Precio</label>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="input-group my-3">
+                                <span class="input-group-text">Subcuenta asociada</span>
+                                <input class="form-control form-control-md" type="text">
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                
-                <div class="col col-lg-6 d-flex justify-content-center">
-                    Mundo
+
+                <!-- Segunda Columuna -->
+                <div class="col col-lg-6 col-md-12 col-sm-12">
+                    <div class="offset-2">
+                        <h4 class="mt-2 mb-4 d-flex justify-content-center">Ventas</h4>
+                        <div class="my-3">
+
+                            <span>Unidad de medida: </span>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" value="option1" name="radios2" id="radio3"
+                                    checked>
+                                <label for="radio3">Unidad</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" value="option2" name="radios2" id="radio4">
+                                <label for="radio4">Precio</label>
+                            </div>
+
+                        </div>
+
+                        <div class="col ">
+                            <div class="input-group my-3">
+                                <span class="input-group-text">Subcuenta asociada</span>
+                                <input class="form-control form-control-md" type="text">
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+
+
         </CardComponent>
 
         <!-- *DIV VACIO -->
@@ -117,4 +167,9 @@ defineProps({
 });
 </script>
 
-<style src="../../../node_modules/vue-multiselect/dist/vue-multiselect.css"></style>
+<style src="../../../node_modules/vue-multiselect/dist/vue-multiselect.css">
+.form-check-inline {
+    margin-right: 20px;
+    /* Ajusta este valor según el espaciado deseado */
+}
+</style>

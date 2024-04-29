@@ -10,7 +10,7 @@
 
     <div v-if="!familia.id">
         <CardComponent size="col-4">
-            <h1 class="text-center">Creación del Proveedor</h1>
+            <h1 class="text-center">Creación de la Familia</h1>
         </CardComponent>
     </div>
 

@@ -38,7 +38,8 @@ export function useFamilias() {
 
     //FUNCTIONS
     
-    const nuevaFamilia = () => {        
+    const nuevaFamilia = () => {       
+        //agregar codigo here
         router.push('/configuracion/familias/nuevo');
     }
 

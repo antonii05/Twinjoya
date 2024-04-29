@@ -21,13 +21,13 @@ return new class extends Migration
             //$table->string('mennu_web')->nullable();
             $table->unsignedInteger('contador')->nullable();
             $table->decimal('descuento')->nullable();
-            // * faltan los 3 checks de la izquierda (FOTO EN WHATSAPP)
-            $table->boolean('imprimir_ventas')->nullable();
-            $table->boolean('compras_unidad_medida'); //por defecto estara activado como unidad == 0
-            $table->boolean('compras_has_metal'); // marcar si compra con metal incluido == 0
-            $table->string('compras_subcuenta_asociada')->nullable();
-            $table->boolean('ventas_unidad_medida'); //por defecto estara activado como unidad == 0
-            $table->string('ventas_subcuenta_asociada')->nullable();
+            // * faltan los 4 checks del separador (FOTO EN WHATSAPP)
+            //$table->boolean('imprimir_ventas')->nullable();
+            // $table->boolean('compras_unidad_medida'); //por defecto estara activado como unidad == 0
+            // $table->boolean('compras_has_metal'); // marcar si compra con metal incluido == 0
+            // $table->string('compras_subcuenta_asociada')->nullable();
+            // $table->boolean('ventas_unidad_medida'); //por defecto estara activado como unidad == 0
+            // $table->string('ventas_subcuenta_asociada')->nullable();
             $table->timestamps();
         });
     }
