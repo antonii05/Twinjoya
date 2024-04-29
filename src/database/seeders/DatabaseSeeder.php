@@ -25,5 +25,6 @@ class DatabaseSeeder extends Seeder
         Proveedor::factory()->times(10)->create();
         $this->call(SeccionSeeder::class);
         $this->call(FamiliasSeeder::class);
+        $this->call(ArticuloSeeder::class);
     }
 }

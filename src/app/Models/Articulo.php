@@ -25,4 +25,20 @@ class Articulo extends Model
         'created_at',
         'updated_at',
     ];
+
+    /**
+     * Devuelve la familia que pertencee a ese Articulo
+     */
+    public function familia()
+    {
+        return $this->hasOne(Seccion::class, 'id', 'id_familia');
+    }
+
+    /**
+     * Devuelve el proveedor que pertencee a ese Articulo
+     */
+    public function proveedor()
+    {
+        return $this->hasOne(Proveedor::class, 'id', 'id_proveedor');
+    }
 }

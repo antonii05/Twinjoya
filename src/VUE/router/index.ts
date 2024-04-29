@@ -54,6 +54,16 @@ const router = createRouter({
     {
       path: '/articulos',
       name: 'articulos',
+      component: () => import('@/VUE/components/articulos/listadoArticulos.vue'),
+    },
+    {
+      path: '/articulo/nuevo',
+      name: 'articuloNuevo',
+      component: () => import('@/VUE/views/ArticulosView.vue'),
+    },
+    {
+      path: '/articulos/informacion/:id(\\d+)',
+      name: 'articulosInformacion',
       component: () => import('@/VUE/views/ArticulosView.vue'),
     },
     {

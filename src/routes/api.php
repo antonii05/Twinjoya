@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticulosController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\FamiliaController;
@@ -58,4 +59,10 @@ Route::prefix('/v1/secciones')->group(function () {
     Route::delete('/eliminar/{id}', [SeccionController::class, 'eliminar']);
     Route::post('/crear', [SeccionController::class, 'crear']);
     Route::put('/actualizar', [SeccionController::class, 'actualizar']);
+});
+
+
+Route::prefix('/v1/articulos')->group(function () {
+    Route::get('/getArticulos', [ArticulosController::class, 'getArticulos']);
+    Route::get('/getArticulo/{idArticulo}', [ArticulosController::class, 'detalle']);
 });
