@@ -13,5 +13,5 @@
 
 25 Abr -- Arreglar fallo en consola despues de eliminar un proveedor (revisar que no pase con los clientes)
 
-2 May -- Asegurarse de que va bien el actualizar de los articulos
+2 May -- Asegurarse de que va bien el actualizar de los articulos, mejorar la vista de articulos
  

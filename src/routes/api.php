@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\FamiliaController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\ReparacionesController;
 use App\Http\Controllers\SeccionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -69,5 +70,11 @@ Route::prefix('/v1/articulos')->group(function () {
     Route::post('/crear', [ArticulosController::class, 'crear']);
     Route::put('/actualizar', [ArticulosController::class, 'actualizar']);
     Route::delete('/eliminar/{idArticulo}', [ArticulosController::class, 'eliminar']);
-
 });
+
+
+Route::prefix('/v1/reparaciones')->group(function () {
+    Route::get('/getReparaciones', [ReparacionesController::class, 'getReparaciones']);
+    Route::get('/getReparacion/{id}', [ReparacionesController::class, 'getReparacion']);
+});
+

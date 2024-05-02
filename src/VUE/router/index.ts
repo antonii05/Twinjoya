@@ -19,6 +19,16 @@ const router = createRouter({
     {
       path: '/reparaciones',
       name: 'reparaciones',
+      component: () => import('@/VUE/components/reparaciones/listadoReparacion.vue'),
+    },
+    {
+      path: '/reparacion/informacion/:id(\\d+)',
+      name: 'reparacionesInformacion',
+      component: () => import('@/VUE/views/ReparacionesView.vue'),
+    },
+    {
+      path: '/reparaciones/nuevo',
+      name: 'reparacionesNuevo',
       component: () => import('@/VUE/views/ReparacionesView.vue'),
     },
     {

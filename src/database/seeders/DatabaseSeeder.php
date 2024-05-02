@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SeccionSeeder::class);
         $this->call(FamiliasSeeder::class);
         $this->call(ArticuloSeeder::class);
+        $this->call(ReparacionSeeder::class);
     }
 }
