@@ -14,10 +14,10 @@ export interface Articulo {
   precio_venta: string;
   compras_unidad_medida: number;
   ventas_unidad_medida: number;
-  articulo_obsoleto: number | null;
+  articulo_en_uso: number | boolean | null;
   created_at: string | null;
   updated_at: string | null;
   //RELACIONES
-  familia: Seccion | null;
-  proveedor: Proveedor | null;
+  familia: Seccion;
+  proveedor: Proveedor;
 }

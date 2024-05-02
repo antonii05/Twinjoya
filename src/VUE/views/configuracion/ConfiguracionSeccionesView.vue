@@ -24,7 +24,7 @@
                         </div>
                         <div class="col col-10">
                             <h5 class="card-text">Descripción</h5>
-                            <textarea class="form-control form-control"></textarea>
+                            <textarea class="form-control form-control" v-model="item.descripcion"></textarea>
                         </div>
                         <div class="row">
                             <div class="col col-5 mt-3 offset-">

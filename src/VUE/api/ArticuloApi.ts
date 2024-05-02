@@ -14,5 +14,18 @@ export default {
         return axios.get('/articulos/getArticulo/' + idArticulo).then((res: AxiosResponse) => {
             return res.data;
         });
-    }
+    },
+    async crear(newArticulo: Articulo) {
+        return axios.post('/articulos/crear', newArticulo).then((res: AxiosResponse) => {
+            return res;
+        });
+    },
+    async actualizar(newArticulo: Articulo) {
+        return axios.put('/articulos/actualizar', newArticulo).then((res: AxiosResponse) => {
+            return res;
+        });
+    },
+    async eliminar(idArticulo: number): Promise<Number> {
+        return (((await axios.delete('/articulos/eliminar/' + idArticulo)).status));
+    },
 }

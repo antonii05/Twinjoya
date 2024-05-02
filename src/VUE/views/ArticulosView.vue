@@ -31,7 +31,7 @@
         </div>
         <div class="col">
             <BotonesCrud @crear="crear(articulo)" @eliminar="eliminar(articulo.id)" @modificar="modificar(articulo)"
-                :is-cliente="!!articulo.id" text='nuevo cliente' />
+                :is-cliente="!!articulo.id" text='Registrar Articulo' />
         </div>
     </div>
 

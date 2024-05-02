@@ -1,7 +1,7 @@
 <template>
     <div class="btn-group my-3 shadow-lg" role="group">
-        <button v-if="!isCliente" type="button" class="btn btn-info" @click="nuevo">{{ 'Guardar ' + text }}</button>
-        <button v-if="isCliente" vtype="button" class="btn btn-" @click="modificar">Modificar</button>
+        <button v-if="!isCliente" type="button" class="btn btn-info" @click="nuevo">{{ text }}</button>
+        <button v-if="isCliente" vtype="button" class="btn btn-info" @click="modificar">Modificar</button>
         <button v-if="isCliente" type="button" class="btn btn-danger" @click="eliminar">Eliminar</button>
     </div>
 </template>

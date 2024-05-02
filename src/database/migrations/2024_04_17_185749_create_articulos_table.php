@@ -25,7 +25,9 @@ return new class extends Migration
             $table->decimal('precio_venta');
             $table->boolean('compras_unidad_medida'); //por defecto estara activado como unidad == 0
             $table->boolean('ventas_unidad_medida'); //por defecto estara activado como unidad == 0
-            $table->boolean('articulo_obsoleto')->nullable();
+            $table->boolean('articulo_en_uso')->nullable();
+            $table->integer('id_empresa');
+            $table->integer('id_usuario');
             $table->timestamps();
         });
     }

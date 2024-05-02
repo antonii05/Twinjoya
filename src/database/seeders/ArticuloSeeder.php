@@ -26,7 +26,9 @@ class ArticuloSeeder extends Seeder
                 'precio_venta' => rand(10, 100), // Genera un precio aleatorio
                 'compras_unidad_medida' => rand(0, 1), // Genera 0 o 1 aleatorio para compras_unidad_medida
                 'ventas_unidad_medida' => rand(0, 1), // Genera 0 o 1 aleatorio para ventas_unidad_medida
-                'articulo_obsoleto' => rand(0, 1), // Genera 0 o 1 aleatorio para articulo_obsoleto
+                'articulo_en_uso' => rand(0, 1), // Genera 0 o 1 aleatorio para articulo_obsoleto
+                'id_usuario' => rand(0,5),
+                'id_empresa' => 1,
             ]);
         }
     }

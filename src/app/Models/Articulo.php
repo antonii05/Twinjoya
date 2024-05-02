@@ -21,7 +21,9 @@ class Articulo extends Model
         'precio_venta',
         'compras_unidad_medida',
         'ventas_unidad_medida',
-        'articulo_obsoleto',
+        'articulo_en_uso',
+        'id_empresa',
+        'id_usuario',
         'created_at',
         'updated_at',
     ];
