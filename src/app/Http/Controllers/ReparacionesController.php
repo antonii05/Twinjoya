@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ReparacionesController extends Controller
 {
     public function getReparaciones(){
-        return Reparacion::all();
+        return Reparacion::with(['empresa','cliente','proveedor','taller'])->get();
     }
 
     public function getReparacion($id){

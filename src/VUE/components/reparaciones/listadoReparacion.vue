@@ -13,15 +13,17 @@
                 <tr class="encabezado">
                     <th>Numero Reparacion</th>
                     <th>Descripcion</th>
-                    <th>CIF</th>
-                    <th>taller</th>
+                    <th>Unidades</th>
+                    <th>Taller</th>
                     <th>Direccion</th>
                 </tr>
                 <tr class="filas" v-for="(item, index) in reparaciones" :key="index" @click="detalle(item.id)">
                     <td>{{ item.numero_reparacion }}</td>
                     <td>{{ item.descripcion }}</td>
                     <td>{{ item.unidades }}</td>
-                    <td>{{ item.taller.nombre }}</td>
+                    <td v-if="item.taller && item.taller.nombre">
+                        {{ item.taller.nombre }}
+                    </td>
                     <td class="eliminar text-center">
                         <!-- El .stop hace que no se ejecute mas opciones una vez ejecutado ese @click -->
                         <button class="btn btn-danger" @click.stop="eliminar(item.id)">

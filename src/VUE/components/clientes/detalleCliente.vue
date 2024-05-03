@@ -120,13 +120,14 @@ import { onMounted } from "vue";
 import { useCliente } from "../../composables/useCliente";
 import { useRoute } from "vue-router";
 import CardComponent from "../helpers/CardComponent.vue"
+import type { Cliente } from "../../models/Cliente";
 
 const route = useRoute();
 const { detalle, } = useCliente();
 
 defineProps({
     cliente: {
-        type: Object,
+        type: Object as () => Cliente,
         required: true,
     }
 });

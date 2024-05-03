@@ -2,6 +2,10 @@ import { ref } from 'vue'
 import type { Reparacion } from "@/VUE/models/Reparacion";
 import ReparacionesApi from "@/VUE/api/ReparacionesApi";
 import { useRouter } from 'vue-router'
+import { useCliente } from './useCliente';
+import { useEmpresa } from './useEmpresa';
+import { useTaller } from './useTaller';
+import { useProveedor } from './useProveedor';
 
 
 
@@ -12,6 +16,13 @@ export function useReparacion() {
     const reparaciones = ref([] as Reparacion[]);
     const reparacion = ref({} as Reparacion);
     const selector = ref('');
+
+
+    //COMPOSABLES
+    const { clientes, cargarClientes } = useCliente();
+    const { empresas, cargarEmpresas } = useEmpresa();
+    const { talleres, cargarTalleres } = useTaller();
+    const { proveedores, cargarProveedores } = useProveedor();
 
 
     //Funciones
@@ -60,6 +71,10 @@ export function useReparacion() {
 
     const nuevaReparacion = () => {
         reparacion.value = {} as Reparacion;
+        cargarClientes();
+        cargarEmpresas();
+        cargarTalleres();
+        cargarProveedores();
         ruta.push('/reparacion/nuevo');
     }
 
@@ -83,16 +98,16 @@ export function useReparacion() {
     }
 
     const modificar = async (nuevoreparacion: Reparacion) => {
-       /*  try {
-            await reparacionesApi.update(nuevoreparacion).then((respuesta) => {
-                if (respuesta.status == 200) {
-                    ruta.push('/reparaciones');
-                }
-                console.log(respuesta);
-            });
-        } catch (error) {
-            console.log("Ocurrio un error al hacer la peticion de update a la API ERROR: " + error);
-        } */
+        /*  try {
+             await reparacionesApi.update(nuevoreparacion).then((respuesta) => {
+                 if (respuesta.status == 200) {
+                     ruta.push('/reparaciones');
+                 }
+                 console.log(respuesta);
+             });
+         } catch (error) {
+             console.log("Ocurrio un error al hacer la peticion de update a la API ERROR: " + error);
+         } */
     }
 
     const crear = async (nuevoreparacion: Reparacion) => {
@@ -110,5 +125,5 @@ export function useReparacion() {
 
     //-----------------------------------------ACCIONES CRUD---------------------------------------------
 
-    return { reparacion, reparaciones, selector, cambiarPestania, cargarReparaciones, detalle, eliminar, nuevaReparacion, modificar, crear }
+    return { reparacion, reparaciones, selector, empresas, talleres, proveedores, clientes, cambiarPestania, cargarReparaciones, detalle, eliminar, nuevaReparacion, modificar, crear }
 }

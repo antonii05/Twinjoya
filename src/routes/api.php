@@ -7,6 +7,7 @@ use App\Http\Controllers\FamiliaController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ReparacionesController;
 use App\Http\Controllers\SeccionController;
+use App\Http\Controllers\TallerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,7 +40,12 @@ Route::prefix('v1/clientes')->group(function () {
 //Ruta para la Empresa
 
 Route::prefix('v1/empresas')->group(function () {
-    Route::get('/getTalleres/{idEmpresa}', [EmpresaController::class, 'getTalleres']);
+    Route::get('/getTalleres/{idEmpresa}', [EmpresaController::class, 'getTalleres']);   //quitar
+    Route::get('/getEmpresas', [EmpresaController::class, 'getEmpresas']);   //quitar
+});
+
+Route::prefix('/v1/talleres')->group(function () {
+    Route::get('/getTalleres', [TallerController::class, 'getTalleres']);
 });
 
 Route::prefix('v1/proveedores')->group(function () {

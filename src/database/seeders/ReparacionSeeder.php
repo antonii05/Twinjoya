@@ -20,7 +20,7 @@ class ReparacionSeeder extends Seeder
                 'fecha_recogida' => now(),
                 'id_cliente' => random_int(1, 10),
                 'id_proveedor' => random_int(1,10),
-                'id_taller' => random_int(1,3),
+                'id_taller' => random_int(1,2),
                 'fecha_prevista' => now()->addDays(random_int(1, 15)), // Ejemplo de fecha prevista aleatoria
                 'unidades' => random_int(1, 5), // Cambia los rangos según tu caso o déjalo como null
                 'importe' => rand(100, 1000) / 10, // Ejemplo de importe aleatorio

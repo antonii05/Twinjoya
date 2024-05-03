@@ -1,5 +1,6 @@
 <template>
     <h1>Datos Cliente</h1>
+    {{ reparacion }}
 </template>
 
 <script setup lang="ts">

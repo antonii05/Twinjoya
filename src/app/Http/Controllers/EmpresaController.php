@@ -8,10 +8,12 @@ use App\Models\Taller;
 
 class EmpresaController extends Controller
 {
+    /**
+     * Funcion que retorna todas las Empresas
+     */
     public function getEmpresas(){
-
+        return Empresa::all();
     }
-
 
     /**
      * Funcion que retorna los talleres de una empresa
