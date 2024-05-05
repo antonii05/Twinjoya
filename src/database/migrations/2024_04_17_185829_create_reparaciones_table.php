@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('reparaciones', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('numero_reparacion')->unique();
             $table->integer('id_empresa');
             $table->timestamp('fecha_recogida');
             $table->integer('id_cliente')->nullable();

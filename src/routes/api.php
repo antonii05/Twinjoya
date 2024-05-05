@@ -82,5 +82,8 @@ Route::prefix('/v1/articulos')->group(function () {
 Route::prefix('/v1/reparaciones')->group(function () {
     Route::get('/getReparaciones', [ReparacionesController::class, 'getReparaciones']);
     Route::get('/getReparacion/{id}', [ReparacionesController::class, 'getReparacion']);
+    /* CRUD */
+    Route::post('/crear', [ReparacionesController::class, 'crear']);
+    Route::put('/actualizar', [ReparacionesController::class, 'actualizar']);
+    Route::delete('/eliminar/{idArticulo}', [ReparacionesController::class, 'eliminar']);
 });
-

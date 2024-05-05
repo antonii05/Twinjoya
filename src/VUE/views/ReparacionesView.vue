@@ -3,7 +3,7 @@
 
         <div v-if="reparacion.id">
             <CardComponent size="col-3">
-                <h3 class="my-2 text-uppercase">{{ 'Nº Reparacion: ' + reparacion.numero_reparacion }}</h3>
+                <h3 class="my-2 text-uppercase">{{ 'Nº Reparacion: ' + reparacion.id }}</h3>
             </CardComponent>
         </div>
 

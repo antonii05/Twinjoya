@@ -5,7 +5,6 @@ import type { Taller } from "./Taller";
 
 export interface Reparacion {
   id: number;
-  numero_reparacion: number;
   id_empresa: number;
   fecha_recogida: string;
   id_cliente: number;

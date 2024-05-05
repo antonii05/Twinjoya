@@ -74,6 +74,7 @@ export function useReparacion() {
         isNew.value = true;
         reparacion.value = {} as Reparacion;
         reparacion.value.diasAprox = 15;
+        reparacion.value.terminada = false;
         cargarClientes();
         cargarEmpresas();
         cargarTalleres();
@@ -113,17 +114,16 @@ export function useReparacion() {
          } */
     }
 
-    const crear = async (nuevoreparacion: Reparacion) => {
-        /* try {
-            await reparacionesApi.crear(nuevoreparacion).then((respuesta) => {
+    const crear = async (newReparacion: Reparacion) => {
+        try {
+            await ReparacionesApi.crear(newReparacion).then((respuesta) => {
                 if (respuesta.status == 200) {
                     ruta.push('/reparaciones');
                 }
-                console.log(respuesta);
             })
         } catch (error) {
             console.log("Ocurrio un error al hacer la peticion de creacion a la API ERROR: " + error);
-        } */
+        }
     }
 
     //-----------------------------------------ACCIONES CRUD---------------------------------------------

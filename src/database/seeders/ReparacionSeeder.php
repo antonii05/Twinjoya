@@ -15,7 +15,6 @@ class ReparacionSeeder extends Seeder
     {
         for ($i = 0; $i < 20; $i++) {
             Reparacion::create([
-                'numero_reparacion' => $i + 1,
                 'id_empresa' => 1,
                 'fecha_recogida' => now(),
                 'id_cliente' => random_int(1, 10),

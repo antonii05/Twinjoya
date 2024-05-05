@@ -12,7 +12,6 @@ class Reparacion extends Model
     protected $table = 'reparaciones';
 
     protected $fillable = [
-        'numero_reparacion',
         'id_empresa',
         'fecha_recogida',
         'id_cliente',

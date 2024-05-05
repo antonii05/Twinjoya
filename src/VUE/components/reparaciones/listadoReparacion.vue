@@ -17,7 +17,7 @@
                     <th>Direccion</th>
                 </tr>
                 <tr class="filas" v-for="(item, index) in reparaciones" :key="index" @click="detalle(item.id)">
-                    <td>{{ item.numero_reparacion }}</td>
+                    <td>{{ item.id }}</td>
                     <td>{{ item.descripcion }}</td>
                     <td>{{ item.unidades }}</td>
                     <td v-if="item.taller && item.taller.nombre">

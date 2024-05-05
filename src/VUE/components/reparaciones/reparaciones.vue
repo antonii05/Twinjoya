@@ -5,13 +5,13 @@
             <div class="row">
                 <div class="row">
                     <b>Fecha Estimada</b>
-                        <div class="col col-2 p-1">
-                            <!-- Dias Aprox -->
-                            <div class="input-group">
-                                <span class="input-group-text">Dias Aprox</span>
-                                <input type="number" class="form-control" v-model="reparacion.diasAprox">
-                            </div>
+                    <div class="col col-2 p-1">
+                        <!-- Dias Aprox -->
+                        <div class="input-group">
+                            <span class="input-group-text">Dias Aprox</span>
+                            <input type="number" class="form-control" v-model="reparacion.diasAprox">
                         </div>
+                    </div>
                     <!--  <div class="col col-5 mt-2">
                             <VueDatePicker v-model="date" />
                         </div> -->
@@ -46,6 +46,15 @@
                 <div class="col col-7 mt-2">
                     <textarea cols="30" rows="2" class="form-control"
                         v-model="reparacion.reparacion_a_realizar"></textarea>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col col-2 p-1">
+                    <div class="input-group">
+                        <span class="input-group-text">Presupuesto Taller</span>
+                        <input type="number" class="form-control" v-model="reparacion.presupuesto_taller">
+                    </div>
                 </div>
             </div>
         </CardComponent>
