@@ -16,7 +16,7 @@ export function useReparacion() {
     const reparaciones = ref([] as Reparacion[]);
     const reparacion = ref({} as Reparacion);
     const selector = ref('');
-
+    const isNew = ref(false);
 
     //COMPOSABLES
     const { clientes, cargarClientes } = useCliente();
@@ -70,12 +70,15 @@ export function useReparacion() {
     }
 
     const nuevaReparacion = () => {
+        //TODO ES POSIBLE TENER QUE CAMBIAR EL TERMINADO A  BOOLEANO
+        isNew.value = true;
         reparacion.value = {} as Reparacion;
+        reparacion.value.diasAprox = 15;
         cargarClientes();
         cargarEmpresas();
         cargarTalleres();
         cargarProveedores();
-        ruta.push('/reparacion/nuevo');
+        ruta.push('/reparaciones/nuevo');
     }
 
     //-----------------------------------------ACCIONES CRUD---------------------------------------------
@@ -125,5 +128,5 @@ export function useReparacion() {
 
     //-----------------------------------------ACCIONES CRUD---------------------------------------------
 
-    return { reparacion, reparaciones, selector, empresas, talleres, proveedores, clientes, cambiarPestania, cargarReparaciones, detalle, eliminar, nuevaReparacion, modificar, crear }
+    return { reparacion, reparaciones, selector, empresas, talleres, proveedores, clientes, isNew, cambiarPestania, cargarReparaciones, detalle, eliminar, nuevaReparacion, modificar, crear, cargarClientes, cargarEmpresas, cargarTalleres, cargarProveedores }
 }

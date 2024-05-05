@@ -16,17 +16,20 @@ return new class extends Migration
             $table->bigInteger('numero_reparacion')->unique();
             $table->integer('id_empresa');
             $table->timestamp('fecha_recogida');
-            $table->integer('id_cliente');
+            $table->integer('id_cliente')->nullable();
             $table->integer('id_proveedor')->nullable();
             //no tengo claro si no deberia de ser nullable
             $table->integer('id_taller')->nullable(); 
+            $table->string('telefono')->nullable();
             $table->timestamp('fecha_prevista')->nullable();
             $table->integer('unidades')->nullable();
             $table->decimal('importe')->nullable();
             $table->text('descripcion');
+            $table->text('reparacion_a_realizar');
             $table->string('numero_serie')->nullable();
             $table->decimal('presupuesto_taller')->nullable();
             $table->integer('id_usuario');
+            $table->boolean('terminada');
             $table->timestamps();
         });
     }

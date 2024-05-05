@@ -4,8 +4,7 @@
         <div class="row">
             <div class="col-lg-10 col"></div>
             <div class="col-lg-2 col">
-                <button type="button" class="btn btn-lg btn-info shadow-lg my-3" @click="nuevaReparacion()">Crear un
-                    Proveedor</button>
+                <button type="button" class="btn btn-lg btn-info shadow-lg my-3" @click="nuevaReparacion()">Crear una Reparacion</button>
             </div>
         </div>
         <CardComponent>

@@ -11,17 +11,21 @@ export interface Reparacion {
   id_cliente: number;
   id_proveedor: number;
   id_taller: number;
+  telefono: string | null;
   fecha_prevista: string;
   unidades: number;
   importe: string;
   descripcion: string;
+  reparacion_a_realizar:string;
   numero_serie: string;
   presupuesto_taller: string;
   id_usuario: number;
+  terminada: number | boolean;
   created_at: string;
   updated_at: string;
   empresa: Empresa;
   cliente: Cliente;
   proveedor: Proveedor;
   taller: Taller;
+  diasAprox: number;
 }
