@@ -6,10 +6,9 @@ import sideBarComponent from '../../../VUE/components/helpers/sideBarComponent.v
 <template>
     <sideBarComponent>
         <RouterView v-slot="{ Component }">
-            <!-- TODO METER TRANSICIONES -->
-            <transition name="fade" mode="out-in">
-            <component :is="Component" />
-            </transition>
+            <!-- <Transition name="fade" mode="out-in"> -->
+                <component :is="Component" />
+            <!-- </Transition> -->
         </RouterView>
     </sideBarComponent>
 </template>

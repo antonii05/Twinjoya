@@ -21,7 +21,7 @@ class ReparacionesController extends Controller
     //-----------------------------------------------ACCIONES CRUD-----------------------------------------------
 
     /**
-     * Function que elimina una reparacion pero la guarda en una tabla de respaldo
+     * Function que elimina una reparacion pero la guarda en una tabla de respaldo (dar de Baja) 
      */
     public function eliminar($id)
     {
@@ -44,7 +44,7 @@ class ReparacionesController extends Controller
     {
         try {
             DB::beginTransaction();
-
+            
             DB::commit();
         } catch (\Exception $error) {
             DB::rollBack();

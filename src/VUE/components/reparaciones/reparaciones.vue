@@ -50,13 +50,31 @@
             </div>
 
             <div class="row mt-3">
-                <div class="col col-2 p-1">
+                <div class="col col-2">
                     <div class="input-group">
                         <span class="input-group-text">Presupuesto Taller</span>
                         <input type="number" class="form-control" v-model="reparacion.presupuesto_taller">
                     </div>
                 </div>
             </div>
+            <div class="row my-3">
+
+                <div class="col col-2 form-check form-switch mt-2">
+                    <input class="form-check-input" type="checkbox" id="hasNumeroSerie" v-model="hasNumeroSerie">
+                    <span class="form-check-label" for="hasNumeroSerie">Numero de Serie</span>
+                </div>
+                <transition name="fade">
+                    <div class="col col-2" v-if="hasNumeroSerie">
+                        <div class="input-group">
+                            <span class="input-group-text">Numero de serie</span>
+                            <input type="number" class="form-control" v-model="reparacion.numero_serie">
+                        </div>
+                    </div>
+                </transition>
+
+            </div>
+
+
         </CardComponent>
     </div>
 </template>
@@ -66,8 +84,11 @@ import type { Reparacion } from "../../models/Reparacion";
 /* import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css' */
 import CardComponent from "../../components/helpers/CardComponent.vue";
+import { ref } from "vue";
 
 //variables
+const hasNumeroSerie = ref(false);
+
 
 /* const date = ref(new Date());
 date.value.setDate(date.value.getDate() + 15); */
@@ -80,3 +101,18 @@ defineProps({
 })
 
 </script>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active in <2.1.8 */
+    {
+    opacity: 0;
+}
+</style>

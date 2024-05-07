@@ -1,6 +1,7 @@
 import {createApp} from 'vue'
 import App from './layouts/app.vue'
 import router from '../../VUE/router'
+import "../../VUE/assets/style.css"; //estilos predefinidos
 
 
 /* FontAwesomeIcons */

@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="col-sm p-3 min-vh-100">
-            <RouterView />
+            <slot></slot>
         </div>
     </div>
 </template>
