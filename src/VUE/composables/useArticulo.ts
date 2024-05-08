@@ -4,7 +4,7 @@ import ArticuloApi from "@/VUE/api/ArticuloApi";
 import { useRouter } from 'vue-router'
 
 
-export function useArticulos() {
+export const useArticulos = () => {
 
     //variables
     const router = useRouter();

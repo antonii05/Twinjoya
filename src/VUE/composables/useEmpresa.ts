@@ -2,7 +2,7 @@ import { ref } from "vue";
 import type { Empresa } from "@/VUE/models/Empresa";
 import EmpresaApi from "@/VUE/api/EmpresaApi";
 
-export function useEmpresa() {
+export const useEmpresa = () => {
     const empresas = ref([] as Empresa[]);
 
     const cargarEmpresas = async () => {

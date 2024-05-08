@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reparacion;
+use App\Models\ReparacionesBackup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,35 +26,42 @@ class ReparacionesController extends Controller
      */
     public function eliminar($id)
     {
+        $reparacion = Reparacion::findOrFail($id);
+
         try {
             DB::beginTransaction();
-
+            $reparacionData = $reparacion->toArray();
+            unset($reparacionData['id']);
+            $reparacionData['numero_reparacion'] = $reparacion->id;
+            ReparacionesBackup::create($reparacionData);
+            $reparacion->delete();
             DB::commit();
-            return response()->json(['Reparacion eliminada correctamente'], 200);
+            return response()->json('Reparacion eliminada correctamente', 200);
         } catch (\Exception $error) {
             DB::rollBack();
-            return response()->json(['No se ha podido eliminar la reparcion ERROR: ' . $error->getMessage()], 500);
+            return response()->json('No se ha podido eliminar la reparcion ERROR: ' . $error->getMessage(), 500);
         }
     }
 
     /**
      * Funcion que actualiza una reparacion
-     * TODO Hacer que retorne el objeto reparacion
      */
     public function actualizar(Request $request)
     {
         try {
             DB::beginTransaction();
-            
+            //Hacer el save con el if
             DB::commit();
         } catch (\Exception $error) {
             DB::rollBack();
-            return response()->json(['No se ha podido modificar la reparcion ERROR: ' . $error->getMessage()], 200);
+            return response()->json('No se ha podido modificar la reparcion ERROR: ' . $error->getMessage(), 200);
         }
+        //return $reparacionActualizada;
     }
 
     /**
      * Funcion dedicada a crear la Reparacion
+     * TODO Hacer que retorne el objeto reparacion
      */
     public function crear(Request $request)
     {

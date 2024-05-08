@@ -2,7 +2,7 @@ import { ref } from "vue";
 import type { Taller } from "@/VUE/models/Taller";
 import TallerApi from "@/VUE/api/TallerApi";
 
-export function useTaller() {
+export const useTaller = () => {
     const talleres = ref([] as Taller[]);
 
     const cargarTalleres = async () => {

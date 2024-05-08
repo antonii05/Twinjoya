@@ -6,10 +6,11 @@ import { useCliente } from './useCliente';
 import { useEmpresa } from './useEmpresa';
 import { useTaller } from './useTaller';
 import { useProveedor } from './useProveedor';
+import { useUtils } from './useUtils';
 
 
 
-export function useReparacion() {
+export const useReparacion = () => {
 
     //variables
     const ruta = useRouter();
@@ -86,19 +87,18 @@ export function useReparacion() {
 
 
     const eliminar = async (id_reparacion: number) => {
-        /* try {
-            await reparacionesApi.eliminarreparacion(id_reparacion).then((status) => {
-                if (status == 200) {
-                    console.log('El reparacion se ha eliminado correctamente');
-                    ruta.push('/reparaciones');
-                    window.location.reload(); // cambiar mas adelante
-                } else {
-                    console.log('El reparacion no se ha podido eliminar');
+        try {
+            await ReparacionesApi.eliminar(id_reparacion).then((respuesta) => {
+                if (respuesta === 200) {
+                    //cambiar ruta si hace Falta
+                    ruta.push('/home');
+                    alert('La reparacion se ha eliminado correctamente');
                 }
-            });
+            })
         } catch (error) {
-
-        } */
+            console.error('No se ha podido dar de baja la Reparacion ERROR: ' + error);
+            alert('No se ha podido dar de baja la Reparacion');
+        }
     }
 
     const modificar = async (nuevoreparacion: Reparacion) => {

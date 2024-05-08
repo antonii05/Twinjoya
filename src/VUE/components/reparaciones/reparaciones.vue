@@ -58,7 +58,6 @@
                 </div>
             </div>
             <div class="row my-3">
-
                 <div class="col col-2 form-check form-switch mt-2">
                     <input class="form-check-input" type="checkbox" id="hasNumeroSerie" v-model="hasNumeroSerie">
                     <span class="form-check-label" for="hasNumeroSerie">Numero de Serie</span>
@@ -72,19 +71,29 @@
                     </div>
                 </transition>
 
+                <div class="col-auto offset-md-7" v-if="reparacion.created_at" id="fechaAlta">
+                    <div class="input-group">
+                        <span class="input-group-text">Dado de Alta</span>
+                        <input type="datetime-local" class="form-control"
+                            :value="formatearFecha(reparacion.created_at)">
+                    </div>
+                </div>
             </div>
-
 
         </CardComponent>
     </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import type { Reparacion } from "../../models/Reparacion";
+import CardComponent from "../../components/helpers/CardComponent.vue";
 /* import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css' */
-import CardComponent from "../../components/helpers/CardComponent.vue";
-import { ref } from "vue";
+import { useUtils } from "../../composables/useUtils";
+
+//Composables
+const { formatearFecha } = useUtils();
 
 //variables
 const hasNumeroSerie = ref(false);

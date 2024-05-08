@@ -5,7 +5,7 @@ import FamiliasApi from "@/VUE/api/FamiliasApi";
 
 
 
-export function useSeccion() {
+export const useSeccion = () => {
 
     //variables
     const router = useRouter();

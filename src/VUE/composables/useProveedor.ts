@@ -5,7 +5,7 @@ import { useRoute, useRouter } from 'vue-router'
 
 
 
-export function useProveedor() {
+export const useProveedor = () => {
 
     //variables
     const router = useRouter();

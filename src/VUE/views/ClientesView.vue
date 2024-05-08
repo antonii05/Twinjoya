@@ -58,7 +58,6 @@
         </div>
 
     </div>
-    {{ selector }}
 </template>
 
 <script setup lang="ts">

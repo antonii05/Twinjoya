@@ -53,7 +53,6 @@
             <notas :proveedor="proveedor" />
         </div>
     </div>
-    {{ proveedor }}
 </template>
 
 <script setup lang="ts">

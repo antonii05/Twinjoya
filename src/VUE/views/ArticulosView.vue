@@ -64,7 +64,6 @@
             <web :articulo="articulo" />
         </div>
     </div>
-{{ articulo }}
 </template>
 
 <script setup lang="ts">

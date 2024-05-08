@@ -6,7 +6,7 @@ import type { Familia } from 'VUE/models/Familia';
 
 
 
-export function useFamilias() {
+export const useFamilias = () => {
 
     //variables
     const router = useRouter();
