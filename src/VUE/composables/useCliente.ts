@@ -55,7 +55,9 @@ export const useCliente = () => {
             case 'notas':
                 selector.value = 'notas';
                 break;
-
+            case 'reparaciones':
+                selector.value = 'reparaciones';
+                break;
 
             default:
                 break;

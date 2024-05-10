@@ -12,7 +12,7 @@
 <body>
     <div id="app" class="container-fluid"></div>
 
-    @vite('resources/js/app.js')
+    @vite('resources/js/app.ts')
 </body>
 
 </html>

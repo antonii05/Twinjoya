@@ -23,6 +23,13 @@
                 <button type="button" class="btn btn-info" @click="cambiarPestania('cuenta_cte')">Cuenta Cte</button>
                 <button type="button" class="btn btn-info" @click="cambiarPestania('g_Apartado')">G Apartado</button>
                 <button type="button" class="btn btn-info" @click="cambiarPestania('notas')">Notas</button>
+                <button  v-if="cliente.reparaciones && cliente.reparaciones.length > 0" type="button" class="btn btn-warning"
+                    @click="cambiarPestania('reparaciones')">
+                    Reparaciones Pendientes
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{ cliente.reparaciones.length }}
+                    </span>
+                </button>
             </div>
 
         </div>
@@ -37,24 +44,28 @@
             <detalleCliente :cliente="cliente" />
         </div>
 
-        <div class="datosFacturacion" v-if="selector == 'facturacion'">
+        <div class="facturacion" v-if="selector == 'facturacion'">
             <datosFacturacion />
         </div>
 
-        <div class="datosFacturacion" v-if="selector == 'fechaSenialada'">
+        <div class="fechaSenialada" v-if="selector == 'fechaSenialada'">
             <fechasSenialadas />
         </div>
 
-        <div class="datosFacturacion" v-if="selector == 'cuenta_cte'">
+        <div class="cuenta_cte" v-if="selector == 'cuenta_cte'">
             <cuentaCorriente />
         </div>
 
-        <div class="datosFacturacion" v-if="selector == 'g_Apartado'">
+        <div class="g_Apartado" v-if="selector == 'g_Apartado'">
             <apartados />
         </div>
 
-        <div class="datosFacturacion" v-if="selector == 'notas'">
+        <div class="notas" v-if="selector == 'notas'">
             <notas />
+        </div>
+
+        <div class="reparacion" v-if="selector == 'reparaciones'">
+            <reparaciones :reparacion-externa="cliente.reparaciones" :has-params="true" />
         </div>
 
     </div>
@@ -70,6 +81,7 @@ import cuentaCorriente from "@/VUE/components/clientes/cuentaCorrienteCliente.vu
 import fechasSenialadas from "@/VUE/components/clientes/fechasSenialadasCliente.vue";
 import apartados from "@/VUE/components/clientes/apartadosCliente.vue";
 import notas from "@/VUE/components/clientes/notasCliente.vue";
+import reparaciones from "@/VUE/components/reparaciones/listadoReparacion.vue";
 
 import CardComponent from "@/VUE/components/helpers/CardComponent.vue";
 import BotonesCrud from "@/VUE/components/helpers/BotonesCrudComponent.vue";

@@ -1,22 +1,22 @@
 <template>
     <div class="px-5">
-        <h1>Reparaciones</h1>
-        <div class="row">
-            <div class="col-lg-10 col"></div>
+        <div class="row mt-5">
+            <div class="col-lg-10 col">
+                <h1>Reparaciones</h1>
+            </div>
             <div class="col-lg-2 col">
-                <button type="button" class="btn btn-lg btn-info shadow-lg my-3" @click="nuevaReparacion()">Crear una Reparacion</button>
+                <button type="button" class="btn btn-lg btn-info shadow-lg" @click="nuevaReparacion()">Crear una Reparacion</button>
             </div>
         </div>
         <CardComponent>
-            <table class="table">
+            <table class="table" style="background-color: transparent;">
                 <tr class="encabezado">
                     <th>Numero Reparacion</th>
                     <th>Descripcion</th>
                     <th>Unidades</th>
                     <th>Taller</th>
-                    <th>Direccion</th>
                 </tr>
-                <tr class="filas" v-for="(item, index) in reparaciones" :key="index" @click="detalle(item.id)">
+                <tr class="filas" v-for="(item, index) in listado" :key="index" @click="detalle(item.id)">
                     <td>{{ item.id }}</td>
                     <td>{{ item.descripcion }}</td>
                     <td>{{ item.unidades }}</td>
@@ -34,16 +34,33 @@
         </CardComponent>
     </div>
 </template>
-click=
 <script setup lang="ts">
+import { ref } from "vue";
 import { onMounted } from "vue";
 import CardComponent from "../helpers/CardComponent.vue"
 import { useReparacion } from "../../composables/useReparaciones";
+import type { Reparacion } from "VUE/models/Reparacion";
 
 const { reparaciones, cargarReparaciones, detalle, eliminar, nuevaReparacion } = useReparacion();
 
 onMounted(async () => {
-    cargarReparaciones();
+    if(!props.hasParams){
+        cargarReparaciones();
+    }else{
+        listado.value = props.reparacionExterna!
+    }
+})
+const listado = ref(reparaciones);
+
+const props = defineProps({
+    hasParams:{
+        type: Boolean,
+        required:false,
+        default: false,
+    },
+    reparacionExterna:{
+        type: Object as () => Reparacion[]
+    },
 })
 
 </script>

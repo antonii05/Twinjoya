@@ -25,13 +25,12 @@ class ClientesController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Detalle Cliente
      */
     public function show(string $id)
     {
         try {
-            $cliente = Cliente::findOrFail($id);
-            return response()->json($cliente, 200);
+            return Cliente::with(['reparaciones'])->findOrFail($id);
         } catch (\Exception $e) {
             return response()->json('Error: ' . $e, 500);
         }

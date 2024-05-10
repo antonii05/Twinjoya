@@ -14,6 +14,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+//importacion del Editor de Texto
+import CKEditor from '@ckeditor/ckeditor5-vue'; //lo podemos quitar se utilizara otro
+
+
 // Importa los estilos de Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -26,6 +30,8 @@ library.add(fas,fab,far)
 const app = createApp(App)
 
 app.use(router)
+//Usa la libreria del Editor de Texto
+app.use(CKEditor)
 
 app.component("FontAwesomeIcon", FontAwesomeIcon)
 
