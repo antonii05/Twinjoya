@@ -87,7 +87,7 @@
                 <div class="offset-md-7" v-if="cliente.id">
                     <div class="input-group my-4">
                         <span class="input-group-text">Alta Cliente</span>
-                        <input type="datetime-local" class="form-control" id="fechaAlta" v-model="cliente.fecha_alta"
+                        <input type="datetime-local" class="form-control text-center" id="fechaAlta" v-model="cliente.fecha_alta"
                             disabled>
                     </div>
                 </div>
@@ -104,9 +104,10 @@
                 </div>
                 <div class="offset-8">
                     <div class="input-group my-4 col-10">
-                        <span class="input-group-text">Tienda de Referencia</span>
-                        <input class="form-control form-control-md" type="number" v-model="cliente.id_empresa"
-                            :disabled="!!cliente.id">
+                        <span class="mb-2">Tienda de Referencia</span>
+                        <VueMultiselect v-model="cliente.empresa" :options="empresas" :close-on-select="true"
+                            placeholder="Busque una Empresa" label="razon_social" track-by="id"
+                            data-select="Seleccione Una opcion" :disabled="!isNew"/>
                     </div>
                 </div>
             </div>
@@ -121,9 +122,11 @@ import { useCliente } from "../../composables/useCliente";
 import { useRoute } from "vue-router";
 import CardComponent from "../helpers/CardComponent.vue"
 import type { Cliente } from "../../models/Cliente";
+import VueMultiselect from "vue-multiselect";
+import "../../../node_modules/vue-multiselect/dist/vue-multiselect.css";
 
 const route = useRoute();
-const { detalle, } = useCliente();
+const { detalle, empresas, isNew, cargarEmpresas } = useCliente();
 
 defineProps({
     cliente: {
@@ -133,6 +136,7 @@ defineProps({
 });
 
 onMounted(async () => {
+    cargarEmpresas();
     try {
         if (route.params.id) {
             detalle(parseInt(route.params.id as string));

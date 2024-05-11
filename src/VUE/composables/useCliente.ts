@@ -2,6 +2,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import type { Cliente } from "@/VUE/models/Cliente";
 import ClientesApi from "@/VUE/api/ClientesApi";
 import { useRouter } from 'vue-router'
+import { useEmpresa } from './useEmpresa';
 
 
 
@@ -12,7 +13,10 @@ export const useCliente = () => {
     const clientes = ref([] as Cliente[]);
     const cliente = ref({} as Cliente);
     const selector = ref('');
-    const fecha = new Date();
+    const isNew = ref(true);
+
+    //Composables
+    const { empresas, cargarEmpresas } = useEmpresa();
 
 
     const cargarClientes = async () => {
@@ -24,6 +28,7 @@ export const useCliente = () => {
     }
 
     const detalle = async (id: number) => {
+        isNew.value = false;
         try {
             ruta.push('/cliente/detalle/' + id);
             cliente.value = await ClientesApi.detalleCliente(id);
@@ -68,6 +73,9 @@ export const useCliente = () => {
         //! CAMBIAR EL USUARIO AL EMPLEADO AL QUE LE HAYA DADO DE ALTA (SERA EL QUE ESTE LOGEADO)
         cliente.value = {} as Cliente;
         cliente.value.activo = true;
+        const empresaPorDefecto = empresas.value.find(empresa => empresa.id === 1);
+
+        cliente.value.empresa = empresaPorDefecto!;
         cliente.value.tipo_cliente = -1;
         cliente.value.id_usuario = 1
         ruta.push('/cliente/nuevo');
@@ -120,5 +128,5 @@ export const useCliente = () => {
 
     //-----------------------------------------ACCIONES CRUD---------------------------------------------
 
-    return { cliente, clientes, selector, cambiarPestania, cargarClientes, detalle, eliminar, nuevoCliente, modificar, crear }
+    return { cliente, clientes, selector, cambiarPestania, cargarClientes, cargarEmpresas, detalle, eliminar, nuevoCliente, modificar, crear, empresas, isNew }
 }

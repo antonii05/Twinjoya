@@ -30,7 +30,7 @@ class ClientesController extends Controller
     public function show(string $id)
     {
         try {
-            return Cliente::with(['reparaciones'])->findOrFail($id);
+            return Cliente::with(['reparaciones', 'empresa'])->findOrFail($id);
         } catch (\Exception $e) {
             return response()->json('Error: ' . $e, 500);
         }
@@ -69,10 +69,12 @@ class ClientesController extends Controller
      */
     public function actualizar(Request $request)
     {
+        $data = $request->all();
+        $data['id_empresa'] = $request->empresa['id'];
         try {
             DB::beginTransaction();
             $cliente = Cliente::findOrFail($request->id);
-            $cliente->update($request->all());
+            $cliente->update($data);
             DB::commit();
             return response()->json('Cliente modificado con exito', 200);
         } catch (\Exception $e) {
@@ -87,12 +89,12 @@ class ClientesController extends Controller
 
     public function crear(Request $request)
     {
-        $today = Carbon::now(); // Obtiene la fecha y hora actual en la zona horaria predeterminada
-        $date = $today->toDateTimeString(); // Obtiene solo la parte de la fecha en formato 'YYYY-MM-DD'
-        $request->merge(['fecha_alta' => $date]);
+        $data = $request->all();
+        $data['fecha_alta'] =  Carbon::now()->toDateTimeString(); // Obtiene solo la parte de la fecha en formato 'YYYY-MM-DD'
+        $data['id_empresa'] = $request->empresa['id'];
         try {
             DB::beginTransaction();
-            Cliente::create($request->all());
+            Cliente::create($data);
             DB::commit();
             return response()->json('Cliente dado de alta correctamente', 200);
         } catch (\Exception $e) {

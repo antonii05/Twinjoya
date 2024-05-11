@@ -35,15 +35,21 @@ class Cliente extends Model
     public static function generarNifAleatorio()
     {
         $numero = str_pad(mt_rand(0, 99999999), 8, '0', STR_PAD_LEFT);
-        
+
         $letra = 'TRWAGMYFPDXBNJZSQVHLCKE'[intval($numero) % 23];
-        
+
         return $numero . $letra;
     }
 
-    #############################################################################################################################
+    //-----------------------------------------------------------------------------------------------------------------------------
 
-    public function reparaciones(){
-        return $this->hasMany(Reparacion::class,'id_cliente','id');
+    public function reparaciones()
+    {
+        return $this->hasMany(Reparacion::class, 'id_cliente', 'id');
+    }
+
+    public function empresa()
+    {
+        return $this->hasOne(Empresa::class, 'id', 'id_empresa');
     }
 }

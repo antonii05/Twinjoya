@@ -95,7 +95,6 @@
             </div>
         </div>
     </div>
-    {{ reparacion }}
 </template>
 
 <script setup lang="ts">

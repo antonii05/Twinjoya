@@ -40,7 +40,7 @@ Route::prefix('v1/clientes')->group(function () {
 //Ruta para la Empresa
 
 Route::prefix('v1/empresas')->group(function () {
-    Route::get('/getTalleres/{idEmpresa}', [EmpresaController::class, 'getTalleres']);   //quitar
+    Route::get('/getTalleres/{idEmpresa}', [EmpresaController::class, 'getTalleres']);
     Route::get('/getEmpresas', [EmpresaController::class, 'getEmpresas']);   //quitar
 });
 
