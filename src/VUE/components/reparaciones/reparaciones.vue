@@ -74,8 +74,8 @@
                 <div class="col-auto offset-md-7" v-if="reparacion.created_at" id="fechaAlta">
                     <div class="input-group">
                         <span class="input-group-text">Dado de Alta</span>
-                        <input type="datetime-local" class="form-control"
-                            :value="formatearFecha(reparacion.created_at)">
+                        <input type="datetime-local" class="text-center form-control"
+                            :value="formatearFecha(reparacion.created_at)" disabled>
                     </div>
                 </div>
             </div>
