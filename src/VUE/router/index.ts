@@ -100,7 +100,13 @@ const router = createRouter({
       path: '/configuracion/familias/config/adicional',
       name: 'configuracionSecciones',
       component: () => import('@/VUE/views/configuracion/ConfiguracionSeccionesView.vue'),
-    }
+    },
+    {
+      path: '/facturas/proveedores',
+      name: 'facturasProveedores',
+      component: () => import('@/VUE/views/facturas/FacturasProveedorView.vue'),
+    },
+    /* AGREGAR MAS FACTURAS DE PROVEEDOR */
   ]
 })
 

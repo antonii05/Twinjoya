@@ -42,24 +42,42 @@
                         </a>
                     </router-link>
                 </li>
+
+                <!-- Primer desplegable -->
+                <div class="dropdown dropend">
+                    <a href="#"
+                        class="d-flex align-items-center justify-content-center p-3 dropdown-toggle nav_logo nav_link"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <font-awesome-icon icon="gear" />
+                    </a>
+                    <ul class="dropdown-menu text-small shadow dropdown-menu-dark" aria-labelledby="dropdownUser3">
+                        <li @click="$router.push('/configuracion/familias')"><a class="dropdown-item"><font-awesome-icon
+                                    icon="people-roof" /> Familias</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" @click="$router.push('/configuracion/familias/config/adicional')">
+                                <font-awesome-icon icon="users-gear" /> Configuración Adicional Familias</a>
+                        </li>
+                        <li><a class="dropdown-item" href="#">code..</a></li>
+                    </ul>
+                </div>
+
+                <!-- Segundo Desplegable -->
+                <div class="dropdown dropend">
+                    <a href="#"
+                        class="d-flex align-items-center justify-content-center p-3 dropdown-toggle nav_logo nav_link"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <font-awesome-icon icon="scroll" />
+                    </a>
+                    <ul class="dropdown-menu text-small shadow dropdown-menu-dark" aria-labelledby="dropdownUser3">
+                        <li @click="$router.push('/facturas/proveedores')">  <a class="dropdown-item"><font-awesome-icon icon="handshake" /> Facturas de Proveedores</a>
+                        </li>
+                        <li><a class="dropdown-item" href="#">MAS FACTURAS</a></li>
+                    </ul>
+                </div>
+
             </ul>
-            <div class="dropdown">
-                <a href="#"
-                    class="d-flex align-items-center justify-content-center p-3 dropdown-toggle nav_logo nav_link"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <font-awesome-icon icon="gear" />
-                </a>
-                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-                    <li @click="$router.push('/configuracion/familias')"><a class="dropdown-item"><font-awesome-icon
-                                icon="people-roof" /> Familias</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" @click="$router.push('/configuracion/familias/config/adicional')">
-                            <font-awesome-icon icon="users-gear" /> Configuración Adicional Familias</a>
-                    </li>
-                    <li><a class="dropdown-item" href="#">code..</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="col-sm p-3 min-vh-100">
             <slot></slot>
