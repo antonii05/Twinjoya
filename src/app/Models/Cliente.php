@@ -2,31 +2,31 @@
 
 namespace App\Models;
 
+use App\Models\Base\Cliente as BaseCliente;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+class Cliente extends BaseCliente
 {
     use HasFactory;
 
-    protected $fillable = [
-        'nombre',
-        'apellidos',
-        'email',
-        'direccion',
-        'cod_postal',
-        'provincia',
-        'pais',
-        'telefono',
-        'telefonoFijo',
-        'nif',
-        'grupo_familiar',
-        'activo',
-        'tipo_cliente',
-        'fecha_alta',
-        'id_usuario',
-        'id_empresa',
-    ];
+	protected $fillable = [
+		'nombre',
+		'apellidos',
+		'email',
+		'direccion',
+		'cod_postal',
+		'provincia',
+		'pais',
+		'telefono',
+		'telefonoFijo',
+		'nif',
+		'grupo_familiar',
+		'activo',
+		'tipo_cliente',
+		'fecha_alta',
+		'id_usuario',
+		'id_empresa',
+	];
 
 
     /**

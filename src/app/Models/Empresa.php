@@ -2,20 +2,20 @@
 
 namespace App\Models;
 
+use App\Models\Base\Empresa as BaseEmpresa;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Empresa extends Model
+class Empresa extends BaseEmpresa
 {
     use HasFactory;
 
-    protected $fillable = [
-        'numero_sucursal',
-        'razon_social',
-        'direccion',
-        'pais',
-        'descripcion',
-    ];
+	protected $fillable = [
+		'numero_sucursal',
+		'razon_social',
+		'direccion',
+		'pais',
+		'descripcion'
+	];
 
     //Relacion para ver los talleres que tiene una empresa
     public function taller(){

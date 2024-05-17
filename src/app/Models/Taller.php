@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
+use App\Models\Base\Taller as BaseTaller;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Taller extends Model
+class Taller extends BaseTaller
 {
     use HasFactory;
 
-    protected $fillable = [
-        'nombre',
-        'descripcion',
-        'id_empresa',
-    ];
+	protected $fillable = [
+		'nombre',
+		'descripcion',
+		'id_empresa',
+	];
 }

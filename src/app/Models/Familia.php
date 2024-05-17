@@ -2,19 +2,20 @@
 
 namespace App\Models;
 
+use App\Models\Base\Familia as BaseFamilia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Familia extends Model
+class Familia extends BaseFamilia
 {
     use HasFactory;
 
-    protected $fillable = [
-        'codigo',
-        'descripcion_familia',
-        'unidad_medida',
-        'texto_etiqueta',
-        'contador',
+	protected $fillable = [
+		'codigo',
+		'descripcion_familia',
+		'id_seccion',
+		'unidad_medida',
+		'texto_etiqueta',
+		'contador',
         'descuento',
         'imprimir_ventas',
         'compras_unidad_medida',
@@ -24,5 +25,5 @@ class Familia extends Model
         'ventas_subcuenta_asociada',
         'created_at',
         'updated_at',
-    ];
+	];
 }

@@ -2,18 +2,16 @@
 
 namespace App\Models;
 
+use App\Models\Base\Seccione as BaseSeccione;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Seccion extends Model
+class Seccion extends BaseSeccione
 {
     use HasFactory;
 
-    //aqui indicamos en nuevo nombre de la tabla al que hace referencia
-    protected $table = 'secciones';
-    protected $fillable = [
-        'nombre',
-        'prefijo',
-        'descripcion',
-    ];
+	protected $fillable = [
+		'nombre',
+		'prefijo',
+		'descripcion'
+	];
 }
