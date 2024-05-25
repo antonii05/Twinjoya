@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticulosController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\Facturas\FacturasProveedorController;
 use App\Http\Controllers\FamiliaController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ReparacionesController;
@@ -86,4 +87,10 @@ Route::prefix('/v1/reparaciones')->group(function () {
     Route::post('/crear', [ReparacionesController::class, 'crear']);
     Route::put('/actualizar', [ReparacionesController::class, 'actualizar']);
     Route::delete('/eliminar/{idArticulo}', [ReparacionesController::class, 'eliminar']);
+});
+
+Route::prefix('/v1/facturasProveedor')->group(function(){
+    Route::get('/getAll',[FacturasProveedorController::class,'getFacturasProveedor']);
+    Route::get('/get/{idFactura}',[FacturasProveedorController::class,'getFactura']);
+    Route::get('/buscar',[FacturasProveedorController::class,'buscar']);
 });

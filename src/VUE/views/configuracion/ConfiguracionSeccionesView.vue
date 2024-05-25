@@ -12,17 +12,17 @@
                         {{ item.nombre }}
                     </div>
                     <div class="card-body">
-                        <div class="col col-4">
+                        <div class="col col-6">
+                            <h5 class="card-title">Nombre</h5>
+                            <input type="text" class="d-flex form-control form-control-md text-uppercase" placeholder="Nombre Familia"
+                            v-model="item.nombre">
+                        </div>
+                        <div class="col col-4 mt-2">
                             <h5 class="card-title">Prefijo</h5>
                             <input type="text" class="d-flex form-control form-control-md text-uppercase" placeholder="Abreviacion..."
                                 v-model="item.prefijo">
                         </div>
-                        <div class="col col-6">
-                            <h5 class="card-title">Nombre</h5>
-                            <input type="text" class="d-flex form-control form-control-md text-uppercase" placeholder="Nombre Familia"
-                                v-model="item.nombre">
-                        </div>
-                        <div class="col col-10">
+                        <div class="col col-10 mt-2">
                             <h5 class="card-text">Descripción</h5>
                             <textarea class="form-control form-control" v-model="item.descripcion"></textarea>
                         </div>
@@ -49,8 +49,6 @@
                 icon="pen-ruler" />
             modificar secciones</button>
     </div>
-
-    {{ secciones }}
 </template>
 
 <script setup lang="ts">

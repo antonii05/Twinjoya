@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { AxiosAdapter, AxiosResponse } from "axios";
+import type { AxiosResponse } from "axios";
 import type { Proveedor } from "@/VUE/models/Proveedor";
 
 export default {
