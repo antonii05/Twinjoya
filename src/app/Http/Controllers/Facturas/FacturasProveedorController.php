@@ -11,7 +11,7 @@ class FacturasProveedorController extends Controller
 
     public function getFacturasProveedor()
     {
-        return FacturasProveedor::all();
+        return FacturasProveedor::with(['proveedor', 'empresa'])->get();
     }
 
     /**
@@ -19,7 +19,7 @@ class FacturasProveedorController extends Controller
      */
     public function getFactura($numeroFactura)
     {
-        return FacturasProveedor::find($numeroFactura);
+        return FacturasProveedor::with(['proveedor', 'empresa'])->findOrFail($numeroFactura);
     }
 
     /**
@@ -35,9 +35,12 @@ class FacturasProveedorController extends Controller
             return response()->json('Ese numero de factrura todavia no se encuentra registrado');
         } */
         // ? si se quiere una busqueda estricta quitar los '%'
-        $facturas =  FacturasProveedor::where('numero_factura', 'LIKE',$cadena)->first();
-        
+        $facturas =  FacturasProveedor::with(['proveedor', 'empresa'])->where('numero_factura', $cadena )->get();
 
-        return $facturas;
+        if ($facturas->isEmpty()) {
+            return response()->json("No se encuentra ninguna factura con ese numero", 500);
+        }
+
+        return response()->json($facturas, 200);
     }
 }

@@ -14,4 +14,13 @@ class FacturasProveedor extends BaseFacturasProveedore
 		'numero_factura',
 		'fecha_factura'
 	];
+
+	public function proveedor()
+	{
+		return $this->hasOne(Proveedor::class,'id','id_proveedor');
+	}
+
+	public function empresa() {
+		return $this-> hasOne(Empresa::class,'id','id_empresa');
+	}
 }

@@ -6,21 +6,16 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineProps } from 'vue';
+<script setup lang="ts">
 
-export default {
-
-    props: {
-        size: {
-            type: String,
-            default: "col-lg-12",
-            required: false,
-        }
+defineProps({
+   size: {
+        type: String,
+        default: "col-lg-12",
+        required: false,
     },
-    name: 'CardComponent',
+})
 
-}
 </script>
 
 

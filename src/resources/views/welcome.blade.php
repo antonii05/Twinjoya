@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id="app" class="container-fluid"></div>
+    <div id="app"></div>
 
     @vite('resources/js/app.ts')
 </body>

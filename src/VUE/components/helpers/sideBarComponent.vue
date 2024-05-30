@@ -1,118 +1,116 @@
 <template>
+    <!-- Offcanvas Trigger for small devices -->
+    <button class="btn btn-primary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
+        <font-awesome-icon icon="bars" />
+    </button>
+
+    <!-- Offcanvas Component -->
     <div class="row">
-        <div class="col-sm-auto bg-light sticky-top l-navbar">
-            <ul
-                class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center d-flex">
-                <li>
-                    <router-link to="/home">
-                        <a href="#" class="nav_link">
-                            <font-awesome-icon icon="house" />
-                        </a>
-                    </router-link>
-                </li>
-
-                <li>
-                    <router-link to="/clientes">
-                        <a href="#" class="nav_link">
-                            <font-awesome-icon icon="user" />
-                        </a>
-                    </router-link>
-                </li>
-
-                <li>
-                    <router-link to="/reparaciones">
-                        <a href="#" class="nav_link nav_logo">
-                            <font-awesome-icon icon="screwdriver-wrench" />
-                        </a>
-                    </router-link>
-                </li>
-
-                <li>
-                    <router-link to="/proveedores">
-                        <a href="#" class="nav_logo nav_link">
-                            <font-awesome-icon icon="handshake" />
-                        </a>
-                    </router-link>
-                </li>
-
-                <li>
-                    <router-link to="/articulos">
-                        <a href="#" class="nav_logo nav_link">
-                            <font-awesome-icon icon="barcode" />
-                        </a>
-                    </router-link>
-                </li>
-
-                <!-- Primer desplegable -->
-                <div class="dropdown dropend">
-                    <a href="#"
-                        class="d-flex align-items-center justify-content-center p-3 dropdown-toggle nav_logo nav_link"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <font-awesome-icon icon="gear" />
-                    </a>
-                    <ul class="dropdown-menu text-small shadow dropdown-menu-dark" aria-labelledby="dropdownUser3">
-                        <li @click="$router.push('/configuracion/familias')"><a class="dropdown-item"><font-awesome-icon
-                                    icon="people-roof" /> Familias</a>
+        <div class="sidebar col-lg-1 py-1 l-navbar">
+            <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">TwinJoya</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center align-items-center">
+                        <li>
+                            <router-link to="/home" class="nav_link">
+                                <font-awesome-icon icon="house" />
+                            </router-link>
                         </li>
                         <li>
-                            <a class="dropdown-item" @click="$router.push('/configuracion/familias/config/adicional')">
-                                <font-awesome-icon icon="users-gear" /> Configuración Adicional Familias</a>
+                            <router-link to="/clientes" class="nav_link">
+                                <font-awesome-icon icon="user" />
+                            </router-link>
                         </li>
-                        <li><a class="dropdown-item" href="#">code..</a></li>
-                    </ul>
+                        <li>
+                            <router-link to="/reparaciones" class="nav_link">
+                                <font-awesome-icon icon="screwdriver-wrench" />
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/proveedores" class="nav_link">
+                                <font-awesome-icon icon="handshake" />
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/articulos" class="nav_link">
+                                <font-awesome-icon icon="barcode" />
+                            </router-link>
+                        </li>
+                        <!-- Primer desplegable -->
+                        <li class="mt-2">
+                            <button class="btn btn-toggle fw-bold text-capitalize collapsed" data-bs-toggle="collapse"
+                                data-bs-target="#dashboard-collapse1" aria-expanded="false">
+                                Settings <font-awesome-icon icon="chevron-right" class="ms-2" />
+                            </button>
+                            <div class="collapse" id="dashboard-collapse1">
+                        <li class="mt-2">
+                            <a class="text-decoration-none text-black"
+                                @click="$router.push('/configuracion/familias')"><font-awesome-icon
+                                    icon="people-roof" />
+                                Familias</a>
+                        </li>
+                        <li class="mt-3">
+                            <a class="text-decoration-none text-black"
+                                @click="$router.push('/configuracion/familias/config/adicional')">
+                                <font-awesome-icon icon="users-gear" /> Configuración Adicional
+                                Familias</a>
+                        </li>
                 </div>
+                </li>
 
                 <!-- Segundo Desplegable -->
-                <div class="dropdown dropend">
-                    <a href="#"
-                        class="d-flex align-items-center justify-content-center p-3 dropdown-toggle nav_logo nav_link"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <font-awesome-icon icon="scroll" />
-                    </a>
-                    <ul class="dropdown-menu text-small shadow dropdown-menu-dark" aria-labelledby="dropdownUser3">
-                        <li @click="$router.push('/facturas/proveedores')">  <a class="dropdown-item"><font-awesome-icon icon="handshake" /> Facturas de Proveedores</a>
-                        </li>
-                        <li><a class="dropdown-item" href="#">MAS FACTURAS</a></li>
-                    </ul>
-                </div>
+                <li class="mt-2">
+                    <button class="btn btn-toggle fw-bold text-capitalize collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#dashboard-collapse2" aria-expanded="false">
+                        Facturas<font-awesome-icon icon="chevron-right" class="ms-2" />
+                    </button>
+                    <div class="collapse" id="dashboard-collapse2">
+                <li @click="$router.push('/facturas/proveedores')" class="mt-2">
+                    <a class="text-decoration-none text-black">Facturas de
+                        Proveedores <font-awesome-icon icon="scroll" /></a>
+                </li>
+            </div>
+            </li>
 
             </ul>
+        </div>
+    </div>
+    </div>
 
-        </div>
-        <div class="col-sm p-3 min-vh-100">
-            <slot></slot>
-        </div>
+    <main class="col-lg-11 col-md-9 col-12">
+        <slot></slot>
+    </main>
     </div>
 </template>
 
-<script setup lang="ts">
-</script>
+<style scoped>
+main {
+    background-position: right bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
 
-<style>
-.nav_logo,
 .nav_link {
     display: grid;
     grid-template-columns: max-content max-content;
     align-items: center;
-    column-gap: 1rem;
-    padding: 0.5rem 0 0.5rem 1.5rem;
-    color: whitesmoke;
-
+    column-gap: 0.5rem;
+    /* Reduced gap */
+    padding: 0.5rem 0.5rem;
+    color: black;
+    text-decoration: none;
 }
 
 .l-navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 250px;
-    /* Ancho de la barra lateral en dispositivos grandes */
-    background: rgb(0, 224, 255);
     background: linear-gradient(180deg, rgba(0, 224, 255, 1) 0%, rgba(102, 238, 255, 1) 100%);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    padding: 0.5rem 1rem 0;
-    transition: width 0.5s;
-    /* Animación del ancho */
+    padding: 0.5rem 0.5rem 0;
 }
 
 .nav_link {
@@ -121,12 +119,22 @@
     transition: 0.3s;
 }
 
+.nav_link:hover {
+    color: lightgray;
+}
+
 @media (max-width: 992px) {
-    .l-navbar {
+    .offcanvas-lg {
         width: 100%;
-        /* Ancho de la barra lateral en dispositivos más pequeños */
-        left: -100%;
-        /* Oculta la barra lateral en dispositivos más pequeños */
+        background: linear-gradient(180deg, rgba(0, 224, 255, 1) 0%, rgba(102, 238, 255, 1) 100%);
+
+    }
+}
+
+@media (max-width: 576px) {
+    .nav_link {
+        background: linear-gradient(180deg, rgba(0, 224, 255, 1) 0%, rgba(102, 238, 255, 1) 100%);
+        padding: 0.5rem 0.5rem;
     }
 }
 </style>

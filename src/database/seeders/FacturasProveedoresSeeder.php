@@ -25,7 +25,7 @@ class FacturasProveedoresSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id_empresa' => 2,
+                'id_empresa' => 1,
                 'numero_recepcion' => 1002,
                 'fecha_recepcion' => Carbon::now(),
                 'id_proveedor' => 2,

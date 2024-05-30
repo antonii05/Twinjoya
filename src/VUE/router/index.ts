@@ -2,7 +2,6 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
   //history: createWebHashHistory(),
-  // TODO Mirar esto del historial
    history: createWebHashHistory(import.meta.env.BASE_URL),
 
   routes: [
@@ -102,15 +101,20 @@ const router = createRouter({
       component: () => import('@/VUE/views/configuracion/ConfiguracionSeccionesView.vue'),
     },
     {
-      path: '/facturas/proveedores/informacion/:id(\\d+)',
+      path: '/factura/proveedor/informacion/:id(\\d+)',
       name: 'facturasProveedoresInformacion',
       component: () => import('@/VUE/views/facturas/FacturasProveedorView.vue'),
     },
     {
       path: '/facturas/proveedores',
       name: 'facturasProveedores',
-      component: () => import('@/VUE/components/facturas/proveedores/FacturasProveedor.vue'),
+      component: () => import('@/VUE/components/facturas/proveedores/FacturasProveedorListado.vue'),
     },
+    {
+      path: '/facturas/proveedores/nuevo',
+      name: 'facturasProveedoresNuevo',
+      component: () => import('@/VUE/views/facturas/FacturasProveedorView.vue'),
+    }
     /* AGREGAR MAS FACTURAS DE PROVEEDOR */
   ]
 })
