@@ -10,7 +10,7 @@
 <script setup lang="ts">
 
 defineProps({
-    isCliente: {
+    isCliente: {            /* Cambiar en un futuro por isNew */
         type: Boolean,
         required: true,
     },

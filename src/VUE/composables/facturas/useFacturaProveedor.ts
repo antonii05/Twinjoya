@@ -4,6 +4,7 @@ import FacturasProveedorApi from "../../api/FacturasProveedorApi";
 import type { FacturasProveedor } from "../../models/FacturasProveedor";
 import { useEmpresa } from "../useEmpresa";
 import { useProveedor } from "../useProveedor";
+import type { LineaProveedor } from "VUE/models/LineaProveedor";
 
 export const useFacturaProveedor = () => {
 
@@ -19,6 +20,22 @@ export const useFacturaProveedor = () => {
     const isNew = ref(false);
     const facturaProveedor = ref({} as FacturasProveedor);
     const facturasProveedor = ref([] as FacturasProveedor[]);
+    const lineas = ref(facturaProveedor.value.lineas);
+
+    //Iniciadores a vacio
+    const nuevaLinea: LineaProveedor = {
+        nombre_articulo: '',
+        ref_proveedor: '',
+        descripcion: '',
+        unidades: 0,
+        peso: 0,
+        precio_unitario: 0,
+        total_linea: 0,
+        margen: 0,
+        precio_coste: 0,
+        id_proveedor: 0,
+        id_empresa: 0,
+    };
 
 
     //Fucntions
@@ -82,8 +99,15 @@ export const useFacturaProveedor = () => {
     const nuevaFactura = () => {
         isNew.value = true;
         facturaProveedor.value = {} as FacturasProveedor;
+        //Se cañade la primera linea 
+        facturaProveedor.value.lineas.push({} as LineaProveedor)
         cargarEmpresas();
         cargarProveedores();
+    }
+
+    const aniadirLinea = (factura: FacturasProveedor) => {
+        console.log(factura.lineas);
+        factura.lineas.push(nuevaLinea);
     }
 
     //--------------------------------ACCIONES CRUD--------------------------------
@@ -102,6 +126,8 @@ export const useFacturaProveedor = () => {
 
     //--------------------------------ACCIONES CRUD--------------------------------
 
+
+
     return {
 
         //Propiedades
@@ -111,15 +137,16 @@ export const useFacturaProveedor = () => {
         isNew,
         empresas,
         proveedores,
+        lineas,
         // metodos
         cargarFacturas,
         buscar,
         informacion,
         nuevaFactura,
         cambiarPestania,
+        aniadirLinea,
         crear,
         eliminar,
         update,
-
     }
 }

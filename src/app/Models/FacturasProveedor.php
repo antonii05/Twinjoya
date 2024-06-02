@@ -23,4 +23,8 @@ class FacturasProveedor extends BaseFacturasProveedore
 	public function empresa() {
 		return $this-> hasOne(Empresa::class,'id','id_empresa');
 	}
+
+	public function lineas() {
+		return $this-> hasMany(LineasProveedor::class,'numero_factura','numero_factura');
+	}
 }

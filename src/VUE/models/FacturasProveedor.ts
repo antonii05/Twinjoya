@@ -1,5 +1,8 @@
 import type { Empresa } from "./Empresa";
 import type { Proveedor } from "./Proveedor";
+import type { LineaProveedor } from "./LineaProveedor";
+
+
 
 export interface FacturasProveedor {
   numero_factura: number;
@@ -12,4 +15,5 @@ export interface FacturasProveedor {
   updated_at: string;
   empresa: Empresa;
   proveedor: Proveedor;
+  lineas: LineaProveedor[]
 }

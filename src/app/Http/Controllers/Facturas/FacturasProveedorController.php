@@ -19,7 +19,7 @@ class FacturasProveedorController extends Controller
      */
     public function getFactura($numeroFactura)
     {
-        return FacturasProveedor::with(['proveedor', 'empresa'])->findOrFail($numeroFactura);
+        return FacturasProveedor::with(['proveedor', 'empresa','lineas'])->findOrFail($numeroFactura);
     }
 
     /**

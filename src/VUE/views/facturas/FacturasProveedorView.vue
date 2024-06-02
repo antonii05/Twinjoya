@@ -40,7 +40,7 @@
             <div class="row">
                 <!-- Empresas -->
                 <div class="col col-lg-3">
-                    <span class="p-1"> <b>Empresa Responsable</b> </span>
+                    <span class="pdiv-1"> <b>Empresa Responsable</b> </span>
                     <div class="mt-3">
                         <VueMultiselect v-model="facturaProveedor.empresa" :options="empresas" :close-on-select="true"
                             placeholder="Busque una Empresa" label="razon_social" track-by="id"
@@ -89,7 +89,7 @@
             </div>
 
             <div class="lineas" v-if="selector == 'lineas'">
-                <LineasProveedor/>
+                <LineasProveedor :factura-proveedor="facturaProveedor"/>
             </div>
 
             <div class="pie" v-if="selector == 'pie'">
@@ -101,8 +101,8 @@
             </div>
 
         </div>
+        {{ facturaProveedor.lineas }}
     </div>
-    {{ facturaProveedor }}
 </template>
 
 

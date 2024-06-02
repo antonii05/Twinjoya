@@ -28,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ArticuloSeeder::class);
         $this->call(ReparacionSeeder::class);
         $this->call(FacturasProveedoresSeeder::class);
+        $this->call(LineaProveedorSeeder::class);
     }
 }
