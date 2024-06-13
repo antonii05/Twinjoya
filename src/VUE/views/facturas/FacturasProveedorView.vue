@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div>
             <CardComponent size="col-5">
-                <h1>Factura Proveedor {{ facturaProveedor.numero_factura }}</h1>
+                <h1>Factura Proveedor</h1>
                 <h6>Meter Informacion del empleaado que le ha dado de alta</h6>
             </CardComponent><br>
             <br>
@@ -10,8 +10,8 @@
         </div>
 
         <div v-if="!facturaProveedor.numero_factura">
-            <CardComponent size="col-3">
-                <h1 class="text-center">Creación del Cliente</h1>
+            <CardComponent size="col-lg-4 col">
+                <h1 class="text-center">Creación de la Factura</h1>
             </CardComponent>
         </div>
 
@@ -32,41 +32,41 @@
             <div class="col">
                 <BotonesCrud :is-cliente="!!facturaProveedor.numero_factura" @crear="crear(facturaProveedor)"
                     @eliminar="eliminar(facturaProveedor.numero_factura)" @modificar="update(facturaProveedor)"
-                    text='Crear nuevo cliente' />
+                    text='Crear Factura' />
             </div>
         </div>
 
         <CardComponent style="z-index: 1;">
             <div class="row">
                 <!-- Empresas -->
-                <div class="col col-lg-3">
+                <div class="col col-lg-4">
                     <span class="pdiv-1"> <b>Empresa Responsable</b> </span>
                     <div class="mt-3">
                         <VueMultiselect v-model="facturaProveedor.empresa" :options="empresas" :close-on-select="true"
                             placeholder="Busque una Empresa" label="razon_social" track-by="id"
-                            data-select="Seleccione Una opcion" :disabled="!isNew" />
+                            data-select="Seleccione Una opcion" :disabled="!isNew"/>
                     </div>
                 </div>
                 <!-- Numero recepcion -->
-                <div class="col col-lg-3 text-center justify-content-center d-flex">
+               <!--  <div class="col col-lg-3 text-center justify-content-center d-flex">
                     <div class="row">
                         <b>Número de recepción </b>
                         <input type="text" placeholder="Número de recepción" class="form-control text-center"
                             v-model="facturaProveedor.numero_recepcion" :disabled="!isNew">
                     </div>
-                </div>
+                </div> -->
 
                 <!-- FECHA RECEPCION -->
-                <div class="col col-lg-3 text-center justify-content-center d-flex">
+                <div class="col col-lg-4 text-center justify-content-center d-flex">
                     <div class="row">
                         <b>Fecha de recepción </b>
-                        <input type="date" class="form-control text-center" placeholder="Fecha de recepción"
-                            v-model="facturaProveedor.fecha_factura" :disabled="!isNew">
+                        <input type="date" class="form-control text-center" 
+                            v-model="facturaProveedor.fecha_recepcion" :disabled="!isNew">
                     </div>
                 </div>
 
                 <!-- Proveedores -->
-                <div class="col col-lg-3">
+                <div class="col col-lg-4">
                     <span class="p-1"> <b>Proveedores</b> </span>
                     <div class="mt-3">
                         <VueMultiselect v-model="facturaProveedor.proveedor" :options="proveedores"
@@ -101,7 +101,6 @@
             </div>
 
         </div>
-        {{ facturaProveedor.lineas }}
     </div>
 </template>
 

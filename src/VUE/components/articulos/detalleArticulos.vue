@@ -119,8 +119,9 @@ import { useArticulos } from "../../composables/useArticulo";
 import { useProveedor } from "../../composables/useProveedor";
 import { useSeccion } from "../../composables/useSecciones";
 import { useRoute } from "vue-router";
-import CardComponent from "../helpers/CardComponent.vue"
-import VueMultiselect from 'vue-multiselect'
+import CardComponent from "../helpers/CardComponent.vue";
+import VueMultiselect from 'vue-multiselect';
+"../../../node_modules/vue-multiselect/dist/vue-multiselect.css";
 
 const route = useRoute();
 const { detalle } = useArticulos();
@@ -128,11 +129,15 @@ const { proveedores, cargarProveedores } = useProveedor();
 const { secciones, cargarSecciones } = useSeccion();
 const tipoCompra = ref([] as String[]);
 
-defineProps({
+const props = defineProps({
     articulo: {
         type: Object as () => Articulo,
         required: true,
-    }
+    },
+    mainView: {
+        type: Boolean,
+        default: true,
+    },
 });
 
 
@@ -141,8 +146,10 @@ onMounted(async () => {
     try {
         cargarSecciones();
         cargarProveedores();
-        if (route.params.id) {
-            detalle(parseInt(route.params.id as string));
+        if (props.mainView) {
+            if (route.params.id) {
+                detalle(parseInt(route.params.id as string));
+            }
         }
 
     } catch (error) {
@@ -151,7 +158,3 @@ onMounted(async () => {
 })
 
 </script>
-
-<style src="../../../node_modules/vue-multiselect/dist/vue-multiselect.css">
-/* hacer que el check se ponga en verde */
-</style>

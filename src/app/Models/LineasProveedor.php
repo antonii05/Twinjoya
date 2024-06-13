@@ -19,4 +19,8 @@ class LineasProveedor extends BaseLineasProveedor
 		'precio_coste',
 		'id_empresa'
 	];
+
+	public function articulo(){
+		return $this->hasOne(Articulo::class,'id_lineaFacturaProveedor','id');
+	}
 }

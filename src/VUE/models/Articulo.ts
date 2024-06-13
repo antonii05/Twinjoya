@@ -7,14 +7,15 @@ export interface Articulo {
   descripcion: string | null;
   matricula: string | null;
   medida: string | null;
+  tipo_medida: string | null;
   id_familia: number;
   id_proveedor: number;
   tipo_compra: string | null;
   barcode: string | null;
   precio_venta: string;
-  compras_unidad_medida: number;
-  ventas_unidad_medida: number;
+  observaciones: string | null; 
   articulo_en_uso: number | boolean | null;
+  id_lineaFacturaProveedor: number | null;
   created_at: string | null;
   updated_at: string | null;
   //RELACIONES

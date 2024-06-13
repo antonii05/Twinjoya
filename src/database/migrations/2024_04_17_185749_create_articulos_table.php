@@ -17,17 +17,18 @@ return new class extends Migration
             $table->text('descripcion')->nullable();
             $table->string('matricula')->nullable();
             $table->decimal('medida')->nullable();    //se metera el numero y las secciones controlaran la unidad de medida
+            $table->string('tipo_medida')->nullable();
             $table->integer('id_familia');      //donde se desplegara un select con las secciones registradas y activas
             $table->integer('id_proveedor'); //donde se desplegara un select con los proveedores registrados y activos
             $table->string('tipo_compra')->nullable();     //mas adelante ver que es
             $table->string('barcode')->nullable();
-            //? $table->integer('id_marcas')->nulblela();
+            $table->integer('id_marcas')->nullable();
             $table->decimal('precio_venta');
-            $table->boolean('compras_unidad_medida'); //por defecto estara activado como unidad == 0
-            $table->boolean('ventas_unidad_medida'); //por defecto estara activado como unidad == 0
+            $table->text('observaciones')->nullable();
             $table->boolean('articulo_en_uso')->nullable();
             $table->integer('id_empresa');
             $table->integer('id_usuario');
+            $table->integer('id_lineaFacturaProveedor')->nullable();
             $table->timestamps();
         });
     }

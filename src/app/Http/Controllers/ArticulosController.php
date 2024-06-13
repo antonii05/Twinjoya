@@ -26,13 +26,11 @@ class ArticulosController extends Controller
 
     function crear(Request $request)
     {
-        $datos= $request->all();
+        $datos = $request->all();
+        //Se aniade por fuerza la empresa y el usuario registrado
         $datos['id_usuario'] = 1;
         $datos['id_empresa'] = 1;
-        //! -------------------Cambiar-------------------
-        $datos['compras_unidad_medida'] = 1;
-        $datos['ventas_unidad_medida'] = 1;
-        //! -------------------Cambiar-------------------
+
         try {
             DB::beginTransaction();
             Articulo::create($datos);
@@ -46,11 +44,11 @@ class ArticulosController extends Controller
 
     function actualizar(Request $request)
     {
-        
+
         try {
             DB::beginTransaction();
             $articuloDB = Articulo::findOrFail($request->id);
-            $articuloDB->update($request->except(['familia','proveedor']));
+            $articuloDB->update($request->except(['familia', 'proveedor']));
             DB::commit();
             return response()->json('Articulo Modificado Con Exito', 200);
         } catch (\Exception $error) {

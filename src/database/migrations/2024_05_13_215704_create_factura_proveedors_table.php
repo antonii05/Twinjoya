@@ -12,13 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('facturas_proveedores', function (Blueprint $table) {
-            //$table->id();
             $table->id('numero_factura')->primary();
-            $table->integer('id_empresa');
-            $table->integer('numero_recepcion')->unique();
-            $table->timestamp('fecha_recepcion');
+            $table->date('fecha_recepcion');
+            //$table->dateTime('fecha_factura');
             $table->integer('id_proveedor');            
-            $table->dateTime('fecha_factura');
+            $table->integer('id_empresa');
             # Preguntar por tipo de compra
             $table->timestamps();
         });
