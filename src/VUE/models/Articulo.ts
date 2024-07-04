@@ -1,3 +1,4 @@
+import type { Empresa } from "./Empresa";
 import type { Proveedor } from "./Proveedor";
 import type { Seccion } from "./Seccion";
 
@@ -21,4 +22,5 @@ export interface Articulo {
   //RELACIONES
   familia: Seccion;
   proveedor: Proveedor;
+  empresa: Empresa;
 }

@@ -73,6 +73,7 @@ Route::prefix('/v1/secciones')->group(function () {
 Route::prefix('/v1/articulos')->group(function () {
     Route::get('/getArticulos', [ArticulosController::class, 'getArticulos']);
     Route::get('/getArticulo/{idArticulo}', [ArticulosController::class, 'detalle']);
+    Route::get('/buscar', [ArticulosController::class, 'buscar']);
     /* CRUD */
     Route::post('/crear', [ArticulosController::class, 'crear']);
     Route::put('/actualizar', [ArticulosController::class, 'actualizar']);

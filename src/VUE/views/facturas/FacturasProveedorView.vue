@@ -6,7 +6,6 @@
                 <h6>Meter Informacion del empleaado que le ha dado de alta</h6>
             </CardComponent><br>
             <br>
-            {{ }}
         </div>
 
         <div v-if="!facturaProveedor.numero_factura">
@@ -40,7 +39,7 @@
             <div class="row">
                 <!-- Empresas -->
                 <div class="col col-lg-4">
-                    <span class="pdiv-1"> <b>Empresa Responsable</b> </span>
+                    <span class="p-1"> <b>Empresa Responsable</b> </span>
                     <div class="mt-3">
                         <VueMultiselect v-model="facturaProveedor.empresa" :options="empresas" :close-on-select="true"
                             placeholder="Busque una Empresa" label="razon_social" track-by="id"

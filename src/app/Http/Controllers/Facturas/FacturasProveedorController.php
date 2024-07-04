@@ -66,7 +66,7 @@ class FacturasProveedorController extends Controller
             //Lamar al controlador de la creacion de lineas
             if ($lineas != null) {
                 try {
-                    LineasProveedorController::crear($lineas, $factura->numero_factura, $factura->id_empresa);
+                    LineasProveedorController::crear($lineas, $factura->numero_factura, $factura->id_empresa,$factura->id_proveedor);
                 } catch (\Exception $error) {
                     return response()->json($error->getMessage(), 500);
                 }

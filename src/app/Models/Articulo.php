@@ -27,19 +27,27 @@ class Articulo extends BaseArticulo
 
 
 	/**
-     * Devuelve la familia que pertencee a ese Articulo
-     */
-    public function familia()
-    {
-        return $this->hasOne(Seccion::class, 'id', 'id_familia');
-    }
+	 * Devuelve la familia que pertencee a ese Articulo
+	 */
+	public function familia()
+	{
+		return $this->hasOne(Seccion::class, 'id', 'id_familia');
+	}
 
-    /**
-     * Devuelve el proveedor que pertencee a ese Articulo
-     */
-    public function proveedor()
-    {
-        return $this->hasOne(Proveedor::class, 'id', 'id_proveedor');
-    }
+	/**
+	 * Devuelve el proveedor que pertencee a ese Articulo
+	 */
+	public function proveedor()
+	{
+		return $this->hasOne(Proveedor::class, 'id', 'id_proveedor');
+	}
 
+	/**
+	 * Devuelve la empresa a la que pertenece ese articulo
+	 * ! No testeado
+	 */
+	public function empresa()
+	{
+		return $this->hasOne(Empresa::class, 'id', 'id_empresa');
+	}
 }

@@ -15,9 +15,8 @@ class LineasProveedorController extends Controller
      * Funciones que se le pasara un array con las lineas y sus determinados articulos
      */
 
-
      //!terminar de crear los articulos
-    public static function crear(array $lineas,int $numeroFactura,int $id_empresa)
+    public static function crear(array $lineas,int $numeroFactura,int $id_empresa,int $id_proveedor)
     {
         DB::beginTransaction();
         try {
@@ -25,8 +24,10 @@ class LineasProveedorController extends Controller
                 $linea['numero_factura'] = $numeroFactura;
                 $linea['id_empresa'] = $id_empresa;
                 LineasProveedor::create($linea);
+
                 // * SE CREAN LOS ARTICULOS
-                // $articulo = $linea['articulo'];
+                $articulo = $linea['articulo'];
+                $articulo->id_proveedor = $id_proveedor;
                 
             }
             DB::commit();

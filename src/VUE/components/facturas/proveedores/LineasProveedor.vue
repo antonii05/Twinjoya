@@ -17,29 +17,32 @@
 
                     <colgroup>
                         <!-- * Nos se ha definido el Tamaño del boton open -->
-                        <col style="width: 10%;">
-                        <col style="width: 10%;">
-                        <col style="width: 10%;">
-                        <col style="width: 10%;">
-                        <col style="width: 10%;">
-                        <col style="width: 10%;">
-                        <col style="width: 10%;">
-                        <col style="width: 10%;">
-                        <col style="width: 10%;">
-                        <col style="width: 5%;">
+                        <col style="width: 10%;"> <!-- Nombre articulo -->
+                        <col>
+                        <col style="width: 10%;"> <!-- Ref Proveedor -->
+                        <col>
+                        <col style="width: 10%;"> <!-- Descripcion -->
+                        <col style="width: 10%;"> <!-- Unidades -->
+                        <col style="width: 10%;"> <!-- Peso -->
+                        <col style="width: 10%;"> <!-- Precio Unitario -->
+                        <col style="width: 10%;"> <!-- Total Lineas -->
+                        <col style="width: 10%;"> <!-- Margen -->
+                        <col style="width: 10%;"> <!-- Precio Coste -->
+                        <col style="width: 5%;"> <!-- Actions -->
                     </colgroup>
                     <thead>
                         <tr>
-                            <th>Articulo</th>
+                            <th>Nombre del Articulo</th>
+                            <th><!-- nothing--></th>
                             <th>Ref Proveedor</th>
                             <th><!-- nothing--></th>
                             <th>Descripción</th>
                             <th class="text-center">Unidades</th>
-                            <th>Peso</th>
-                            <th>Precio Unitario</th>
-                            <th>Total Linea</th>
-                            <th>Margen</th>
-                            <th>Precio Coste</th>
+                            <th class="text-center">Peso</th>
+                            <th class="text-center">P. Unitario</th>
+                            <th class="text-center">Total Linea</th>
+                            <th class="text-center">Margen</th>
+                            <th class="text-center">P. Coste</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -49,6 +52,12 @@
                             <td>
                                 <div class="col">
                                     <input type="text" v-model="linea.nombre_articulo">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="col">
+                                    <input type="text" id="buscarArticulo" @keyup.enter="buscar(true)"
+                                        class="text-start" placeholder="Busque el codigo de un articulo">
                                 </div>
                             </td>
                             <td>
@@ -80,7 +89,7 @@
                                 </div>
                             </td>
                             <td>
-                                <div class="col">
+                                <div class="col" >
                                     <input type="number" v-model="linea.precio_unitario">
                                 </div>
                             </td>
@@ -124,10 +133,6 @@
                     <div class="modal-body">
                         <DetalleArticulo :articulo="articulo" :main-view="false" />
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -143,9 +148,11 @@ import CardComponent from "../../helpers/CardComponent.vue";
 import DetalleArticulo from "../../articulos/detalleArticulos.vue";
 import type { Articulo } from "VUE/models/Articulo";
 import type { LineaProveedor } from "VUE/models/LineaProveedor";
+import { useArticulos } from "../../../composables/useArticulo";
 
 // Variables
 const { aniadirLinea, eliminarFila, nuevoArticulo } = useFacturaProveedor();
+const { buscar } = useArticulos();
 const articulo = ref({} as Articulo);
 
 //Props
@@ -177,6 +184,11 @@ input {
     border: none;
     border-bottom: 2px solid grey;
     background-color: transparent;
+}
+
+input[type='number'] {
+    width: 3cm;
+    text-align: center;
 }
 
 .list-enter-active,

@@ -2,6 +2,9 @@ import { ref } from 'vue'
 import type { Articulo } from "@/VUE/models/Articulo";
 import ArticuloApi from "@/VUE/api/ArticuloApi";
 import { useRouter } from 'vue-router'
+import { useSeccion } from './useSecciones';
+import { useProveedor } from './useProveedor';
+import { useEmpresa } from './useEmpresa';
 
 
 export const useArticulos = () => {
@@ -12,7 +15,12 @@ export const useArticulos = () => {
     const articulo = ref({} as Articulo);
     const selector = ref('');
 
+    //composables
+    const { secciones, cargarSecciones } = useSeccion();
+    const { proveedores, cargarProveedores } = useProveedor();
+    const { empresas, cargarEmpresas } = useEmpresa();
 
+    //Funcione
     const cargarArticulos = async () => {
         try {
             articulos.value = await ArticuloApi.getArticulos();
@@ -26,6 +34,9 @@ export const useArticulos = () => {
             router.push('/articulos/informacion/' + id);
             articulo.value = await ArticuloApi.getArticulo(id);
             articulo.value.articulo_en_uso = (Boolean)(articulo.value.articulo_en_uso)
+            await cargarProveedores();
+            await cargarSecciones();
+            await cargarEmpresas();
         } catch (error) {
             console.log('Error en la carga del detalle del Articulo' + error);
         }
@@ -63,18 +74,42 @@ export const useArticulos = () => {
         }
     }
 
-    const nuevoArticulo = () => {
-        articulo.value.articulo_en_uso = true
-        router.push('/articulo/nuevo');
+    const nuevoArticulo = async () => {
+        articulo.value.articulo_en_uso = true;
+        articulo.value.tipo_compra = "";
+        await cargarProveedores();
+        await cargarSecciones();
+        await cargarEmpresas();
+        //router.push('/articulo/nuevo');
+    }
+
+    /**
+     * Funcion que se le pasa un boolean que controla el tipo de busqueda que se va a realizar 
+     * Si se le pasa true -> hace una busqueda para el primer articulo que se encuentra en la BD
+     * Si se le pasa false -> hace una busqueda para el primer articulo que se encuentra en la BD
+     */
+    const buscar = async (tipoBusqueda: boolean) => {
+        const inputElement = document.getElementById('buscarArticulo') as HTMLInputElement;
+        let inputValue = inputElement ? inputElement.value : '';
+
+        try {
+            let respuesta = await ArticuloApi.buscar(inputValue, tipoBusqueda);
+            if (tipoBusqueda) {
+                articulo.value = respuesta as Articulo;
+            } else {
+                articulos.value = respuesta as Articulo[];
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     //-----------------------------------------ACCIONES CRUD---------------------------------------------
 
-
     const eliminar = async (id: number) => {
         try {
-            await ArticuloApi.eliminar(id).then((respuesta) =>{
-                if(respuesta == 200){
+            await ArticuloApi.eliminar(id).then((respuesta) => {
+                if (respuesta == 200) {
                     router.push('/articulos');
                     window.location.reload();
                     alert('El articulo se ha eliminado correctamente')
@@ -117,5 +152,5 @@ export const useArticulos = () => {
 
     //-----------------------------------------ACCIONES CRUD---------------------------------------------
 
-    return { articulo, articulos, selector, cambiarPestania, cargarArticulos, detalle, eliminar, nuevoArticulo, modificar, crear }
+    return { articulo, articulos, selector, secciones, proveedores, empresas, cambiarPestania, cargarArticulos, detalle, eliminar, nuevoArticulo, buscar, modificar, crear }
 }

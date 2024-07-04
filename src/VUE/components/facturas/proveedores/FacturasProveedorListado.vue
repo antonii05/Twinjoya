@@ -23,12 +23,13 @@
                     <th>Proveedor</th>
                     <th>Empresa</th>
                 </tr>
+                <!-- !ES POSIBLE UN CAMBIO EN LOS <TD> -->
                 <tr class="filas" v-for="(item, index) in facturasProveedor" :key="index"
                     @click="$router.push('/factura/proveedor/informacion/' + item.numero_factura)">
                     <th class="text-primary">{{ item.numero_factura }}</th>
-                    <td>{{ item.numero_recepcion }}</td>
-                    <td>{{ item.proveedor.nombre_fiscal }}</td>
-                    <td>{{ item.empresa.razon_social }}</td>
+                    <td>{{ item.fecha_recepcion  }}</td>
+                    <td>{{ item.proveedor?.nombre_fiscal }}</td>
+                    <td>{{ item.empresa?.razon_social }}</td>
                     <td class="eliminar text-center">
                         <button class="btn btn-danger" @click.stop="eliminar(item.numero_factura)">
                             <font-awesome-icon icon="trash-can" color="#fff" />
