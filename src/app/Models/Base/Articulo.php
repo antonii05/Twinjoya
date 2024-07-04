@@ -17,16 +17,18 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $descripcion
  * @property string|null $matricula
  * @property float|null $medida
+ * @property string|null $tipo_medida
  * @property int $id_familia
  * @property int $id_proveedor
  * @property string|null $tipo_compra
  * @property string|null $barcode
+ * @property int|null $id_marcas
  * @property float $precio_venta
- * @property bool $compras_unidad_medida
- * @property bool $ventas_unidad_medida
+ * @property string|null $observaciones
  * @property bool|null $articulo_en_uso
  * @property int $id_empresa
  * @property int $id_usuario
+ * @property int|null $id_lineaFacturaProveedor
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  *
@@ -40,11 +42,11 @@ class Articulo extends Model
 		'medida' => 'float',
 		'id_familia' => 'int',
 		'id_proveedor' => 'int',
+		'id_marcas' => 'int',
 		'precio_venta' => 'float',
-		'compras_unidad_medida' => 'bool',
-		'ventas_unidad_medida' => 'bool',
 		'articulo_en_uso' => 'bool',
 		'id_empresa' => 'int',
-		'id_usuario' => 'int'
+		'id_usuario' => 'int',
+		'id_lineaFacturaProveedor' => 'int'
 	];
 }

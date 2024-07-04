@@ -1,1 +1,25 @@
-/* Introducir los estilos de los inputs y de los span */
+/* Se agrega estilo basico a los input spans y textareas */
+input.form-control,
+input.form-control:disabled,
+textarea.form-control,
+select.form-select,
+textarea.form-control:focus,
+input.form-control:focus
+{
+    background-color: rgb(104, 212, 255);
+    border: 2px solid rgb(56, 197, 253) ;
+}
+
+span.input-group-text{
+    background-color: rgb(153, 219, 245);
+    border: 2px solid rgb(56, 197, 253) ;
+}
+
+/* Se agrega el estilo a las opciones del select */
+select.form-select > option {
+    background-color: rgb(153, 219, 245);
+}
+
+.custom-multiselect .multiselect {
+    background-color: rgb(153, 219, 245);
+}

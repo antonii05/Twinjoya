@@ -13,11 +13,9 @@ use Illuminate\Database\Eloquent\Model;
  * Class FacturasProveedore
  * 
  * @property int $numero_factura
- * @property int $id_empresa
- * @property int $numero_recepcion
  * @property Carbon $fecha_recepcion
  * @property int $id_proveedor
- * @property Carbon $fecha_factura
+ * @property int $id_empresa
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  *
@@ -29,10 +27,8 @@ class FacturasProveedore extends Model
 	protected $primaryKey = 'numero_factura';
 
 	protected $casts = [
-		'id_empresa' => 'int',
-		'numero_recepcion' => 'int',
 		'fecha_recepcion' => 'datetime',
 		'id_proveedor' => 'int',
-		'fecha_factura' => 'datetime'
+		'id_empresa' => 'int'
 	];
 }

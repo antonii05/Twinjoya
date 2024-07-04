@@ -5,6 +5,8 @@ import type { FacturasProveedor } from "../../models/FacturasProveedor";
 import { useEmpresa } from "../useEmpresa";
 import { useProveedor } from "../useProveedor";
 import type { LineaProveedor } from "VUE/models/LineaProveedor";
+import type { Articulo } from "VUE/models/Articulo";
+import { useArticulos } from "../useArticulo";
 
 export const useFacturaProveedor = () => {
 
@@ -20,27 +22,18 @@ export const useFacturaProveedor = () => {
     const isNew = ref(false);
     const facturaProveedor = ref({} as FacturasProveedor);
     const facturasProveedor = ref([] as FacturasProveedor[]);
-    const lineas = ref(facturaProveedor.value.lineas);
-
-    //Iniciadores a vacio
-    const nuevaLinea: LineaProveedor = {
-        nombre_articulo: '',
-        ref_proveedor: '',
-        descripcion: '',
-        unidades: 0,
-        peso: 0,
-        precio_unitario: 0,
-        total_linea: 0,
-        margen: 0,
-        precio_coste: 0,
-        id_proveedor: 0,
+    const facturaInicial: FacturasProveedor = {
+        numero_factura: 0,
         id_empresa: 0,
+        fecha_recepcion: '',
+        id_proveedor: 0,
+        lineas: [],
     };
 
 
     //Fucntions
-    const buscar = async (campo: string) => {
-        let cadena = document.getElementById(campo) as HTMLInputElement;
+    const buscar = async (inputId: string) => {
+        let cadena = document.getElementById(inputId) as HTMLInputElement;
         try {
             facturasProveedor.value = await FacturasProveedorApi.buscarFactura(cadena.value);
         } catch (error: any) {
@@ -63,6 +56,7 @@ export const useFacturaProveedor = () => {
             facturaProveedor.value = await FacturasProveedorApi.getFacturaProveedor(id);
         } catch (error) {
             console.log(error);
+            alert(error)
         }
     }
 
@@ -98,30 +92,59 @@ export const useFacturaProveedor = () => {
 
     const nuevaFactura = () => {
         isNew.value = true;
-        facturaProveedor.value = {} as FacturasProveedor;
+        facturaProveedor.value = facturaInicial;
         //Se cañade la primera linea 
-        facturaProveedor.value.lineas.push({} as LineaProveedor)
         cargarEmpresas();
         cargarProveedores();
     }
 
     const aniadirLinea = (factura: FacturasProveedor) => {
-        console.log(factura.lineas);
-        factura.lineas.push(nuevaLinea);
+        factura.lineas.push({} as LineaProveedor);
+    }
+
+    const eliminarFila = (lineas: LineaProveedor[], indice: number) => {
+        if (indice > -1 && indice < lineas.length) {
+            lineas.splice(indice, 1);
+        }
+    }
+
+    const nuevoArticulo = (lineaProveedor: LineaProveedor) => {
+        lineaProveedor.articulo = {} as Articulo
+        lineaProveedor.articulo.articulo_en_uso = true
     }
 
     //--------------------------------ACCIONES CRUD--------------------------------
 
     const crear = async (factura: FacturasProveedor) => {
-
-    }
-
-    const eliminar = async (numeroFactura: number) => {
-
+        try {
+            const data = await FacturasProveedorApi.crear(factura);
+            alert('Creacion con exito');
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const update = async (factura: FacturasProveedor) => {
+        delete factura.empresa;
+        delete factura.proveedor;
+        try {
+            facturasProveedor.value = await FacturasProveedorApi.update(factura);
+            alert('Se ha actualizado la factura del proveedor');
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
+    const eliminar = async (numeroFactura: number) => {
+        try {
+            await FacturasProveedorApi.delete(numeroFactura);
+            router.push('/facturas/proveedores');
+            window.location.reload();
+            alert('La factura se ha eliminado con exito');
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     //--------------------------------ACCIONES CRUD--------------------------------
@@ -137,7 +160,7 @@ export const useFacturaProveedor = () => {
         isNew,
         empresas,
         proveedores,
-        lineas,
+        nuevoArticulo,
         // metodos
         cargarFacturas,
         buscar,
@@ -145,6 +168,7 @@ export const useFacturaProveedor = () => {
         nuevaFactura,
         cambiarPestania,
         aniadirLinea,
+        eliminarFila,
         crear,
         eliminar,
         update,

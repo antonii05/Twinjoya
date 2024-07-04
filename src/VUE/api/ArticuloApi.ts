@@ -1,7 +1,7 @@
 
 import type { Articulo } from 'VUE/models/Articulo';
 import axios from "axios";
-import type { AxiosResponse } from 'axios';
+import type { AxiosError, AxiosResponse } from 'axios';
 
 export default {
     name: 'ArticuloApi',
@@ -27,5 +27,13 @@ export default {
     },
     async eliminar(idArticulo: number): Promise<Number> {
         return (((await axios.delete('/articulos/eliminar/' + idArticulo)).status));
+    },
+    async buscar(cadena: string,encontrarPrimero: boolean): Promise<Articulo[] | Articulo> {
+        return axios.get('/articulos/buscar?cadena='+cadena+'&encontrar_primero='+encontrarPrimero).then((response:AxiosResponse)=>{
+            console.log(cadena)
+            return response.data;
+        }).catch((error:AxiosError)=>{
+            throw error.response?.data;
+        })
     },
 }

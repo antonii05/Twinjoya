@@ -18,51 +18,52 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body d-flex flex-column p-0 pt-lg-3 overflow-y-auto">
-                            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center align-items-center">
+                            <ul class="nav nav-flush flex-column text-center align-items-start ms-2">
                                 <li>
-                                    <router-link to="/home" class="nav_link">
-                                        <font-awesome-icon icon="house" />
+                                    <router-link to="/home" class="nav_link fw-bold">
+                                        <font-awesome-icon icon="house" /> Menu
+                                    </router-link>
+
+                                </li>
+                                <li>
+                                    <router-link to="/clientes" class="nav_link fw-bold">
+                                        <font-awesome-icon icon="user" /> Clientes
                                     </router-link>
                                 </li>
                                 <li>
-                                    <router-link to="/clientes" class="nav_link">
-                                        <font-awesome-icon icon="user" />
+                                    <router-link to="/reparaciones" class="nav_link fw-bold">
+                                        <font-awesome-icon icon="screwdriver-wrench" /> Reparaciones
                                     </router-link>
                                 </li>
                                 <li>
-                                    <router-link to="/reparaciones" class="nav_link">
-                                        <font-awesome-icon icon="screwdriver-wrench" />
+                                    <router-link to="/proveedores" class="nav_link fw-bold">
+                                        <font-awesome-icon icon="handshake" /> Proveedores
                                     </router-link>
                                 </li>
                                 <li>
-                                    <router-link to="/proveedores" class="nav_link">
-                                        <font-awesome-icon icon="handshake" />
-                                    </router-link>
-                                </li>
-                                <li>
-                                    <router-link to="/articulos" class="nav_link">
-                                        <font-awesome-icon icon="barcode" />
+                                    <router-link to="/articulos" class="nav_link fw-bold">
+                                        <font-awesome-icon icon="barcode" /> Articulos
                                     </router-link>
                                 </li>
                                 <!-- Primer desplegable -->
-                                <li class="m-1">
+                                <li class="m-1 ">
                                     <button class="btn btn-toggle fw-bold text-capitalize collapsed"
                                         data-bs-toggle="collapse" data-bs-target="#dashboard-collapse1"
                                         aria-expanded="false">
-                                        Configuración <font-awesome-icon icon="gear" class="ms-2" />
+                                        <font-awesome-icon icon="gear" class="ms-2" /> Settings
                                     </button>
                                     <div class="collapse" id="dashboard-collapse1">
-                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small text-start">
                                             <li class="mt-2">
                                                 <a class="text-decoration-none text-black"
                                                     @click="$router.push('/configuracion/familias')">
-                                                    <font-awesome-icon icon="people-roof" /> Familias
+                                                    <font-awesome-icon icon="people-roof"  class="me-2"/> Familias
                                                 </a>
                                             </li>
                                             <li class="mt-2">
                                                 <a class="text-decoration-none text-black"
                                                     @click="$router.push('/configuracion/familias/config/adicional')">
-                                                    <font-awesome-icon icon="users-gear" /> Configuración Adicional
+                                                    <font-awesome-icon icon="users-gear" class="me-2"  /> Configuración Adicional
                                                     Familias
                                                 </a>
                                             </li>
@@ -75,17 +76,19 @@
                                     <button class="btn btn-toggle fw-bold text-capitalize collapsed"
                                         data-bs-toggle="collapse" data-bs-target="#dashboard-collapse2"
                                         aria-expanded="false">
-                                        Facturas<font-awesome-icon icon="chevron-right" class="ms-2" />
+                                        Facturas <font-awesome-icon icon="chevron-right" class="ms-2" />
                                     </button>
                                     <div class="collapse" id="dashboard-collapse2">
-                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small text-start">
                                             <li class="mt-2" @click="$router.push('/facturas/proveedores')">
-                                                <a class="text-decoration-none text-black">Facturas de
-                                                    Proveedores <font-awesome-icon icon="scroll" /></a>
+                                                <a class="text-decoration-none text-black"><font-awesome-icon
+                                                        icon="scroll" class="me-2" /> Facturas de
+                                                    Proveedores </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
+
                             </ul>
                         </div>
                     </div>
@@ -134,7 +137,7 @@ main {
     color: lightgray;
 }
 
-.collapse{
+.collapse {
     cursor: pointer;
 }
 

@@ -1,3 +1,5 @@
+.vscode/
 mysql
 .DS_Store
 .idea
+docs/

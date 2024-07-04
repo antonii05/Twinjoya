@@ -25,6 +25,28 @@ export default {
         }).catch((error: AxiosError) => {
             throw error;
         })
-    }
+    },
+    async crear(facturaProveedor: FacturasProveedor) {
+        return axios.post('/facturasProveedor/crear', facturaProveedor).then((response: AxiosResponse) => {
+            return response.data;
+        }).catch((error: AxiosError) => {
+            throw error.response?.data;
+        })
+    },
+    async update(facturaProveedor: FacturasProveedor) {
+        return axios.put('/facturasProveedor/update', facturaProveedor).then((response: AxiosResponse) => {
+            return response.data;
+        }).catch((error: AxiosError) => {
+            throw error.response?.data;
+        })
+    },
+    //No testeado
+    async delete(numero_factura: number) {
+        return axios.delete('/facturasProveedor/delete/'+numero_factura).then((response: AxiosResponse) => {
+            return response.data;
+        }).catch((error: AxiosError) => {
+            throw error.response?.data;
+        })
+    },
 
 }

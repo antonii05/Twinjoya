@@ -73,6 +73,7 @@ Route::prefix('/v1/secciones')->group(function () {
 Route::prefix('/v1/articulos')->group(function () {
     Route::get('/getArticulos', [ArticulosController::class, 'getArticulos']);
     Route::get('/getArticulo/{idArticulo}', [ArticulosController::class, 'detalle']);
+    Route::get('/buscar', [ArticulosController::class, 'buscar']);
     /* CRUD */
     Route::post('/crear', [ArticulosController::class, 'crear']);
     Route::put('/actualizar', [ArticulosController::class, 'actualizar']);
@@ -93,4 +94,7 @@ Route::prefix('/v1/facturasProveedor')->group(function(){
     Route::get('/getAll',[FacturasProveedorController::class,'getFacturasProveedor']);
     Route::get('/get/{idFactura}',[FacturasProveedorController::class,'getFactura']);
     Route::get('/buscar',[FacturasProveedorController::class,'buscar']);
+    Route::post('/crear',[FacturasProveedorController::class,'crear']);
+    Route::put('/update',[FacturasProveedorController::class,'update']);
+    Route::delete('/delete/{numero_factura}',[FacturasProveedorController::class,'eliminar']);
 });

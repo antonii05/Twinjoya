@@ -1,5 +1,0 @@
-API --
-El funcionamiento de la Api se base en el codigo que se encuentra el Laravel en la parte del los Providers -> RouteServiceProvider.php
-
---Para que los clientes funcionen el usuario debe de pasarle el nombre, y el id_empresa al menos (los campos id_usuario y activo se generan automaticamente) 
---PARA QUE EL PROVEEDOR FUNCIONE le deberemos de pasar al menos el nombre fiscal, el codigo, y el id de la empresa (los campos id_usuario y activo se rellenan solos)

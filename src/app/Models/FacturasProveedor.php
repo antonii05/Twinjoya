@@ -8,7 +8,7 @@ class FacturasProveedor extends BaseFacturasProveedore
 {
 	protected $fillable = [
 		'id_empresa',
-		'numero_recepcion',
+		//'numero_recepcion',
 		'fecha_recepcion',
 		'id_proveedor',
 		'numero_factura',
@@ -25,6 +25,6 @@ class FacturasProveedor extends BaseFacturasProveedore
 	}
 
 	public function lineas() {
-		return $this-> hasMany(LineasProveedor::class,'numero_factura','numero_factura');
+		return $this->hasMany(LineasProveedor::class,'numero_factura','numero_factura')->with('articulo');
 	}
 }

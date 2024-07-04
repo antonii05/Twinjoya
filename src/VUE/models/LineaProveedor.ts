@@ -1,3 +1,5 @@
+import type { Articulo } from "./Articulo";
+
 export interface LineaProveedor {
     id?: number;
     nombre_articulo: string;
@@ -11,6 +13,7 @@ export interface LineaProveedor {
     precio_coste: number;
     id_proveedor: number;
     id_empresa: number;
+    articulo: Articulo
     created_at?: string;
     updated_at?: string;
   }
