@@ -47,6 +47,10 @@ class FacturasProveedorController extends Controller
         return response()->json($facturas, 200);
     }
 
+    public function buscarArticulo(Request $request) {
+        
+    }
+
     //-----------------------------------------ACCIONES CRUD-----------------------------------------
 
     //!FALTA CREAR LAS LINEAS Y LOS DEMAS APARTADOS

@@ -42,11 +42,24 @@ export default {
     },
     //No testeado
     async delete(numero_factura: number) {
-        return axios.delete('/facturasProveedor/delete/'+numero_factura).then((response: AxiosResponse) => {
+        return axios.delete('/facturasProveedor/delete/' + numero_factura).then((response: AxiosResponse) => {
             return response.data;
         }).catch((error: AxiosError) => {
             throw error.response?.data;
         })
     },
+    //!terminar
+    async buscarArticulo(registro: string, factura: FacturasProveedor) {
+        return axios.get('/facturasProveedor/buscar_articulo', {
+            data: {
+                registro: registro,
+                factura: factura,
+            }
+        }).then((response: AxiosResponse) => {
+            return response.data;
+        }).catch((error: AxiosError) => {
+            throw error.response?.data;
+        })
+    }
 
 }

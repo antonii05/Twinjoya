@@ -6,7 +6,6 @@ import { useEmpresa } from "../useEmpresa";
 import { useProveedor } from "../useProveedor";
 import type { LineaProveedor } from "VUE/models/LineaProveedor";
 import type { Articulo } from "VUE/models/Articulo";
-import { useArticulos } from "../useArticulo";
 
 export const useFacturaProveedor = () => {
 
@@ -105,6 +104,17 @@ export const useFacturaProveedor = () => {
     const eliminarFila = (lineas: LineaProveedor[], indice: number) => {
         if (indice > -1 && indice < lineas.length) {
             lineas.splice(indice, 1);
+        }
+    }
+
+    /**
+     * Funcion que recoge un supuesto articulo y compara que sea el mismo proveedor y la misma empresa y retorna el articulo en ese caso
+     */
+    const buscarArticulo = async (lineaProveedor: LineaProveedor, registro: string) => {
+        try {
+            lineaProveedor.articulo = await FacturasProveedorApi.buscarArticulo(registro, facturaProveedor.value)
+        } catch (error) {
+            console.log(error)
         }
     }
 

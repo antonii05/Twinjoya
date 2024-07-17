@@ -94,6 +94,7 @@ Route::prefix('/v1/facturasProveedor')->group(function(){
     Route::get('/getAll',[FacturasProveedorController::class,'getFacturasProveedor']);
     Route::get('/get/{idFactura}',[FacturasProveedorController::class,'getFactura']);
     Route::get('/buscar',[FacturasProveedorController::class,'buscar']);
+    Route::get('/buscar_articulo',[FacturasProveedorController::class,'buscarArticulo']);
     Route::post('/crear',[FacturasProveedorController::class,'crear']);
     Route::put('/update',[FacturasProveedorController::class,'update']);
     Route::delete('/delete/{numero_factura}',[FacturasProveedorController::class,'eliminar']);
